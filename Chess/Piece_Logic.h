@@ -22,10 +22,12 @@ struct CurCoor
 class Piece_Logic:public Command_Logic
 {
     static int mMap[12][11];//地图
+public:
 	static int mMouseDownRange[12][11];//鼠标按下范围代表的值
 
 	//所有棋子所表示的范围
 	//我方棋子
+private:
 	static int mWE_Command_X;//我方主将的X
 	static int mWE_CommandState;
 	static int mWE_Command_Y;
@@ -55,8 +57,7 @@ public:
 	void InitDate();
 	void InitBlue_Cursor();//初始化蓝色光标
 	void RenderBlue_Cursor();//绘制蓝色光标
-	void BlueCursorStandardCoor(int Mouse_X,int Mouse_Y);//得到红色光标的标准位置
-
+	void BlueCursorStandardCoor(int Mouse_X,int Mouse_Y);//得到蓝色光标的标准位置
 
 	void __Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y);//棋子《将》 的逻辑
 	int __WE__PieceCommand_Logic___(BOOL BoolForward, BOOL BoolBack, BOOL Left, BOOL Right);//我方棋子将军逻辑

@@ -154,6 +154,7 @@
     <ClInclude Include="ENEMY_3_Soldier.h" />
     <ClInclude Include="ENEMY_4_Soldier.h" />
     <ClInclude Include="ENEMY_Command.h" />
+    <ClInclude Include="ENEMY_Command_Logic.h" />
     <ClInclude Include="ENEMY_Left_Cannon.h" />
     <ClInclude Include="ENEMY_Left_Chariot.h" />
     <ClInclude Include="ENEMY_Left_Elephant.h" />

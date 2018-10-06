@@ -173,5 +173,8 @@
     <ClInclude Include="ENEMY_4_Soldier.h">
       <Filter>ENEMY</Filter>
     </ClInclude>
+    <ClInclude Include="ENEMY_Command_Logic.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

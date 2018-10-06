@@ -60,7 +60,7 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 			}
 		}
 
-		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到红色光标的标准位置
+		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到蓝色光标的标准位置
 
 		if (mWE_CommandState == 1 && (Mouse_X >= 200 && Mouse_X <= 280) || (Mouse_Y >= 440 && Mouse_Y <= 620))/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
 		{
@@ -75,6 +75,8 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 			
 			int TempReturn = __WE__PieceCommand_Logic___(BoolForward, BoolBack, BoolLeft,BoolRight);
 		}
+
+
 	}
 }
 //所有棋子的逻辑
