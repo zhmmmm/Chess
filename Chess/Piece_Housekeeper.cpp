@@ -1,7 +1,5 @@
 #include "Piece_Housekeeper.h"
 
-
-
 void Piece_Housekeeper::InitPiece()
 {
 	WE_GOPIECECOMMAND->InitPiece();
@@ -74,8 +72,6 @@ void Piece_Housekeeper::LoadPiece()
 	ENEMY_GO_2_SOLDIER->RenderPiece();
 	ENEMY_GO_3_SOLDIER->RenderPiece();
 	ENEMY_GO_4_SOLDIER->RenderPiece();
-
-
 }
 void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int Mouse_y)
 {
@@ -112,6 +108,4 @@ void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int 
 	ENEMY_GO_2_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 	ENEMY_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 	ENEMY_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-
-
 }

@@ -41,66 +41,70 @@ public:
 	}
 	void PieceLogicUpdata(int Which, int State, int x, int y)
 	{
-		Piece_Logic::RenderBlue_Cursor();
-		Piece_Logic::__Piece_Logic__(Which, State, x, y);
+		if (Piece::Reutrn_mWe() == 0)
+		{
+			Piece_Logic::RenderBlue_Cursor();
+			Piece_Logic::__Piece_Logic__(Which, State, x, y);
 
-		//前
-		if (Piece_Logic::__Return__ReturnCommand_State_Y() < 0)
-		{
-			for (int i = 1; i <= 2; i++)
+			//前
+			if (Piece_Logic::__Return__ReturnCommand_State_Y() < 0)
 			{
-				if (Piece_Logic::__Return__ReturnCommand_State_Y() + i == 0)//表示往X轴的左边移动一个刻度
+				for (int i = 1; i <= 2; i++)
 				{
-					mCommand_Y -= 60;
-					Piece_Logic::__WE__mWE_CommandState(0);
-					Piece_Logic::__Change__ReturnCommand_State_Y(0);
-					break;
+					if (Piece_Logic::__Return__ReturnCommand_State_Y() + i == 0)//表示往X轴的左边移动一个刻度
+					{
+						mCommand_Y -= 60;
+						Piece::Change_mWe(1);
+						Piece_Logic::__WE__mWE_CommandState(0);
+						Piece_Logic::__Change__ReturnCommand_State_Y(0);
+						break;
+					}
 				}
 			}
-		}
-		//后
-		if (Piece_Logic::__Return__ReturnCommand_State_Y() > 0)
-		{
-			for (int i = 1; i <= 2; i++)
+			//后
+			if (Piece_Logic::__Return__ReturnCommand_State_Y() > 0)
 			{
-				if (Piece_Logic::__Return__ReturnCommand_State_Y() - i == 0)//表示往X轴的左边移动一个刻度
+				for (int i = 1; i <= 2; i++)
 				{
-					mCommand_Y += 60;
-					Piece_Logic::__WE__mWE_CommandState(0);
-					Piece_Logic::__Change__ReturnCommand_State_Y(0);
-					break;
+					if (Piece_Logic::__Return__ReturnCommand_State_Y() - i == 0)//表示往X轴的左边移动一个刻度
+					{
+						mCommand_Y += 60;
+						Piece_Logic::__WE__mWE_CommandState(0);
+						Piece_Logic::__Change__ReturnCommand_State_Y(0);
+						break;
+					}
 				}
 			}
-		}
-		//左
-		if (Piece_Logic::__Return__ReturnCommand_State_X() < 0)
-		{
-			for (int i = 1; i <= 2; i++)
+			//左
+			if (Piece_Logic::__Return__ReturnCommand_State_X() < 0)
 			{
-				if (Piece_Logic::__Return__ReturnCommand_State_X() + i == 0)//表示往X轴的左边移动一个刻度
+				for (int i = 1; i <= 2; i++)
 				{
-					mCommand_X -= 60;
-					Piece_Logic::__WE__mWE_CommandState(0);
-					Piece_Logic::__Change__ReturnCommand_State_X(0);
-					break;
+					if (Piece_Logic::__Return__ReturnCommand_State_X() + i == 0)//表示往X轴的左边移动一个刻度
+					{
+						mCommand_X -= 60;
+						Piece_Logic::__WE__mWE_CommandState(0);
+						Piece_Logic::__Change__ReturnCommand_State_X(0);
+						break;
+					}
 				}
 			}
-		}
-		//右
-		if (Piece_Logic::__Return__ReturnCommand_State_X() > 0)
-		{
-			for (int i = 1; i <= 2; i++)
+			//右
+			if (Piece_Logic::__Return__ReturnCommand_State_X() > 0)
 			{
-				int temp = Piece_Logic::__Return__ReturnCommand_State_X();
-				if (Piece_Logic::__Return__ReturnCommand_State_X() - i == 0)//表示往X轴的左边移动一个刻度
+				for (int i = 1; i <= 2; i++)
 				{
-					mCommand_X += 60;
-					Piece_Logic::__WE__mWE_CommandState(0);
-					Piece_Logic::__Change__ReturnCommand_State_X(0);
-					break;
+					int temp = Piece_Logic::__Return__ReturnCommand_State_X();
+					if (Piece_Logic::__Return__ReturnCommand_State_X() - i == 0)//表示往X轴的左边移动一个刻度
+					{
+						mCommand_X += 60;
+						Piece_Logic::__WE__mWE_CommandState(0);
+						Piece_Logic::__Change__ReturnCommand_State_X(0);
+						break;
+					}
 				}
 			}
-		}
 
+		}//
 	}
 };
