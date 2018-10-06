@@ -122,9 +122,10 @@ public:
 						{
 							//ReturnCommand_State_Y--;
 							//在移动完了之后重新设置将军的坐标
-							//Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
-							//Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
-							//mWE_Command_Y -= 60;
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
+							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
+							mCommand_Y += 60;
 
 							ifok = true;
 							break;
