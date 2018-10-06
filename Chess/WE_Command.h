@@ -69,6 +69,7 @@ public:
 					if (Piece_Logic::__Return__ReturnCommand_State_Y() - i == 0)//表示往X轴的左边移动一个刻度
 					{
 						mCommand_Y += 60;
+						Piece::Change_mWe(1);
 						Piece_Logic::__WE__mWE_CommandState(0);
 						Piece_Logic::__Change__ReturnCommand_State_Y(0);
 						break;
@@ -83,6 +84,7 @@ public:
 					if (Piece_Logic::__Return__ReturnCommand_State_X() + i == 0)//表示往X轴的左边移动一个刻度
 					{
 						mCommand_X -= 60;
+						Piece::Change_mWe(1);
 						Piece_Logic::__WE__mWE_CommandState(0);
 						Piece_Logic::__Change__ReturnCommand_State_X(0);
 						break;
@@ -98,6 +100,7 @@ public:
 					if (Piece_Logic::__Return__ReturnCommand_State_X() - i == 0)//表示往X轴的左边移动一个刻度
 					{
 						mCommand_X += 60;
+						Piece::Change_mWe(1);
 						Piece_Logic::__WE__mWE_CommandState(0);
 						Piece_Logic::__Change__ReturnCommand_State_X(0);
 						break;

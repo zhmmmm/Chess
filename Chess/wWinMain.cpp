@@ -78,7 +78,6 @@ int __stdcall wWinMain(HINSTANCE hInstance,//窗口的实例句柄
 			//游戏逻辑和渲染,在窗口显示之后会不动，所以逻辑写这里才可以(1)
 			//===================================================
 			GameObj->RunGame(hdc, hWnd, hInstance);
-
 			//===================================================
 			//InvalidateRect(hWnd, NULL, FALSE);//刷新
 		}

@@ -24,9 +24,6 @@ class Piece_Logic:public Command_Logic
     static int mMap[12][11];//地图
 	static int mMouseDownRange[12][11];//鼠标按下范围代表的值
 
-	static int gm__Mouse_X;//一个全局的坐标
-	static int gm__Mouse_Y;
-
 	//所有棋子所表示的范围
 	//我方棋子
 	static int mWE_Command_X;//我方主将的X
@@ -48,7 +45,6 @@ class Piece_Logic:public Command_Logic
 	//==============================================
 	//上面为静态的
 	int BlueCur_Bmpid = 0;
-	int RedCur_Bmpid = 0;
 	BlueCur mBlueCur;//蓝色方当前有初始光标坐标
 	CurCoor mBlueStandardCoor[10][9];//蓝色方光标的标准坐标
 
@@ -59,7 +55,7 @@ public:
 	void InitDate();
 	void InitBlue_Cursor();//初始化蓝色光标
 	void RenderBlue_Cursor();//绘制蓝色光标
-
+	void BlueCursorStandardCoor(int Mouse_X,int Mouse_Y);//得到红色光标的标准位置
 
 
 	void __Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y);//棋子《将》 的逻辑

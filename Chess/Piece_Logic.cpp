@@ -1,8 +1,5 @@
 #include "Piece_Logic.h"
 
-int Piece_Logic::gm__Mouse_X = 0;
-int Piece_Logic::gm__Mouse_Y = 0;
-
 int Piece_Logic::mMap[12][11] = //1到17为我方所有棋子，10到170为敌方棋子
 {
 		999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999,
@@ -50,8 +47,6 @@ int Piece_Logic::ReturnCommand_State_Y = 0;
 int Piece_Logic::mWE_Command_Y = 590;
 void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y)//棋子《将》 的逻辑
 {
-	//int Local_TempMoues_X = 0;
-	//int Local_TempMoues_Y = 0;
 
 	if((Which == 1 && State == 1))
 	{
@@ -65,23 +60,7 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 			}
 		}
 
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 9; j++)
-			{
-				if (Mouse_X >= mBlueStandardCoor[i][j].x - 30 && Mouse_X <= mBlueStandardCoor[i][j].x + 30
-					&& Mouse_Y >= mBlueStandardCoor[i][j].y - 30 && Mouse_Y <= mBlueStandardCoor[i][j].y + 30)
-				{
-					//蓝色光标的得到标准坐标
-					mBlueCur.x = mBlueStandardCoor[i][j].x;
-					mBlueCur.y = mBlueStandardCoor[i][j].y;
-
-					//把鼠标标准坐标给全局的变量存起来
-					gm__Mouse_X = mBlueStandardCoor[i][j].x;
-					gm__Mouse_Y = mBlueStandardCoor[i][j].y;
-				}
-			}
-		}
+		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到红色光标的标准位置
 
 		if (mWE_CommandState == 1 && (Mouse_X >= 200 && Mouse_X <= 280) || (Mouse_Y >= 440 && Mouse_Y <= 620))/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
 		{
@@ -264,4 +243,20 @@ void Piece_Logic::RenderBlue_Cursor()//绘制蓝色光标
 	GoBitmap->DrawBmp2(BlueCur_Bmpid, -32, -32, 64, 64, 0, 0, 64, 64, 0XFFFFFF);
 	m.Identity();
 	GoBitmap->SetWorldTransform(m);
+}
+void Piece_Logic::BlueCursorStandardCoor(int Mouse_X, int Mouse_Y)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 9; j++)
+		{
+			if (Mouse_X >= mBlueStandardCoor[i][j].x - 30 && Mouse_X <= mBlueStandardCoor[i][j].x + 30
+				&& Mouse_Y >= mBlueStandardCoor[i][j].y - 30 && Mouse_Y <= mBlueStandardCoor[i][j].y + 30)
+			{
+				//蓝色光标的得到标准坐标
+				mBlueCur.x = mBlueStandardCoor[i][j].x;
+				mBlueCur.y = mBlueStandardCoor[i][j].y;
+			}
+		}
+	}
 }
