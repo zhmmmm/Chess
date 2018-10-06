@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Cmath">
+      <UniqueIdentifier>{f372ff89-c557-44b8-9da2-04fa1332daa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bmp">
+      <UniqueIdentifier>{65fd5a16-1cfd-4cb9-9c9e-3ad280670b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="棋子">
+      <UniqueIdentifier>{a8d87fd7-bbde-4657-b08d-2907034f3867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{b33ef964-d54d-42b1-a8c1-783f3549d7ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ENEMY">
+      <UniqueIdentifier>{8032530c-326d-4296-87be-1e7eb48f7a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WE">
+      <UniqueIdentifier>{43a5e230-9149-43eb-9ab3-5db687364e8c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wWinMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitbmp.cpp">
+      <Filter>Bmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece_Housekeeper.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece_Logic.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Matrix3.h">
+      <Filter>Cmath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Cmath</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitbmp.h">
+      <Filter>Bmp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>棋子</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece_Logic.h">
+      <Filter>棋子</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece_Housekeeper.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Command.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Command.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="Command_Logic.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Left_Man.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Right_Man.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Left_Elephant.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Right_Elephant.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Left_Horse.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Right_Horse.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Left_Chariot.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Right_Chariot.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Left_Cannon.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Right_Cannon.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_0_Soldier.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_1_Soldier.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_2_Soldier.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_3_Soldier.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_4_Soldier.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Left_Man.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Right_Man.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Left_Elephant.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Right_Elephant.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Left_Horse.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Right_Horse.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Left_Chariot.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Right_Chariot.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Left_Cannon.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_Right_Cannon.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_0_Soldier.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_1_Soldier.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_2_Soldier.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_3_Soldier.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_4_Soldier.h">
+      <Filter>ENEMY</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
