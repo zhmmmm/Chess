@@ -61,7 +61,7 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 
 		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到蓝色光标的标准位置
 
-		if (mWE_CommandState == 1 && (Mouse_X >= 200 && Mouse_X <= 280) || (Mouse_Y >= 440 && Mouse_Y <= 620))/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
+		if (mWE_CommandState == 1)/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
 		{
 			BOOL BoolForward = FALSE;
 			BoolForward = Command_Logic::Command_MoveForwardTarget(mWE_Command_X, mWE_Command_Y, Mouse_X, Mouse_Y);
@@ -71,7 +71,6 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 			BoolLeft = Command_Logic::Command_MoveLeftTarget(mWE_Command_X, mWE_Command_Y, Mouse_X, Mouse_Y);
 			BOOL BoolRight = FALSE;
 			BoolRight = Command_Logic::Command_MoveRightTarget(mWE_Command_X, mWE_Command_Y, Mouse_X, Mouse_Y);
-			
 			int TempReturn = __WE__PieceCommand_Logic___(BoolForward, BoolBack, BoolLeft,BoolRight);
 		}
 
@@ -90,7 +89,7 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i - 1][j] >= 200)//主将前面是空地
+					if (mMouseDownRange[i - 1][j] >= 200 && mMouseDownRange[i - 1][j] != 999)//主将前面是空地
 					{
 						ReturnCommand_State_Y--;
 						//在移动完了之后重新设置将军的坐标
@@ -117,7 +116,7 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i + 1][j] >= 200)//主将后面是空地
+					if (mMouseDownRange[i + 1][j] >= 200 && mMouseDownRange[i + 1][j] != 999)//主将后面是空地
 					{
 						ReturnCommand_State_Y++;
 						//在移动完了之后重新设置将军的坐标
@@ -144,7 +143,7 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i][j - 1] >= 200)//主将左边是空地
+					if (mMouseDownRange[i][j - 1] >= 200 && mMouseDownRange[i][j - 1] != 999)//主将左边是空地
 					{
 						ReturnCommand_State_X--;
 						//在移动完了之后重新设置将军的坐标
@@ -171,7 +170,7 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i][j + 1] >= 200)//主将右边是空地
+					if (mMouseDownRange[i][j + 1] >= 200 && mMouseDownRange[i][j + 1] != 999)//主将右边是空地
 					{
 						ReturnCommand_State_X++;
 						//在移动完了之后重新设置将军的坐标

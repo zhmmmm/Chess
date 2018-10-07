@@ -13,8 +13,15 @@ public:
 		if (Mouse_X >= mENEMY_Command_X - 30 && Mouse_X <= mENEMY_Command_X + 30
 			&& Mouse_Y <= mENEMY_Command_Y + 90 && Mouse_Y >= mENEMY_Command_Y + 30)
 		{
-			int temp = 0;
-			return TRUE;
+			if (Mouse_Y > 200)//将军不能出界
+			{
+				return FALSE;
+			}
+			else
+			{
+				int temp = 0;
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}
@@ -24,8 +31,15 @@ public:
 		if (Mouse_X >= mENEMY_Command_X - 30 && Mouse_X <= mENEMY_Command_X + 30
 			&& Mouse_Y >= mENEMY_Command_Y - 90 && Mouse_Y <= mENEMY_Command_Y - 30)
 		{
-			int temp = 0;
-			return TRUE;
+			if (Mouse_Y < 20)
+			{
+				return FALSE;
+			}
+			else
+			{
+				int temp = 0;
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}
@@ -35,8 +49,15 @@ public:
 		if (Mouse_X <= mENEMY_Command_X + 90 && Mouse_X >= mENEMY_Command_X + 30
 			&& Mouse_Y >= mENEMY_Command_Y - 30 && Mouse_Y <= mENEMY_Command_Y + 30)
 		{
-			int temp = 0;
-			return TRUE;
+			if (Mouse_X > 380)
+			{
+				return FALSE;
+			}
+			else
+			{
+				int temp = 0;
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}
@@ -46,8 +67,15 @@ public:
 		if (Mouse_X >= mENEMY_Command_X - 90 && Mouse_X <= mENEMY_Command_X - 30
 			&& Mouse_Y >= mENEMY_Command_Y - 30 && Mouse_Y <= mENEMY_Command_Y + 30)
 		{
-			int temp = 0;
-			return TRUE;
+			if (Mouse_X < 200)
+			{
+				return FALSE;
+			}
+			else
+			{
+				int temp = 0;
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}

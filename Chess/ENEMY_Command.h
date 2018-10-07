@@ -92,7 +92,7 @@ public:
 						mENEMY_CommandState = 1;
 					}
 				}
-				if (mENEMY_CommandState == 1 && ((x >= 200 && x <= 380) || (y >= 20 && y <= 200)))//将军可以行走的范围
+				if (mENEMY_CommandState == 1)//将军可以行走的范围
 				{
 					BOOL BoolForward = FALSE;
 					BoolForward = ENEMY_Command_Logic::Command_MoveForwardTarget(mENEMY_Command_X, mENEMY_Command_Y,x,y);
@@ -122,12 +122,12 @@ public:
 				{
 					if (Piece_Logic::mMouseDownRange[i][j] == 50)//索引到棋子将军
 					{
-						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
-							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
-							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i + 1][j];
+							Piece_Logic::mMouseDownRange[i + 1][j] = Temp;
 							mENEMY_Command_Y += 60;
 							mENEMY_CommandState = 0;
 							Piece::Change_mWe(0);
@@ -147,9 +147,9 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					if (Piece_Logic::mMouseDownRange[i][j] == 50)//索引到棋子将军
 					{
-						if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200)//主将后面是空地
+						if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j] != 999)//主将后面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -174,9 +174,9 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					if (Piece_Logic::mMouseDownRange[i][j] == 50)//索引到棋子将军
 					{
-						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200)//主将左边是空地
+						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i][j + 1] != 999)//主将左边是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -201,9 +201,9 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					if (Piece_Logic::mMouseDownRange[i][j] == 50)//索引到棋子将军
 					{
-						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200)//主将右边是空地
+						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i][j - 1] != 999)//主将右边是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = mMouseDownRange[i][j];
