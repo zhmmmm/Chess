@@ -11,7 +11,7 @@ public:
 	BOOL Command_MoveForwardTarget(int mENEMY_Command_X, int mENEMY_Command_Y, int Mouse_X, int Mouse_Y)
 	{
 		if (Mouse_X >= mENEMY_Command_X - 30 && Mouse_X <= mENEMY_Command_X + 30
-			&& Mouse_Y >= mENEMY_Command_Y - 30 && Mouse_Y <= mENEMY_Command_Y + 30)
+			&& Mouse_Y <= mENEMY_Command_Y + 90 && Mouse_Y >= mENEMY_Command_Y + 30)
 		{
 			int temp = 0;
 			return TRUE;
@@ -22,7 +22,7 @@ public:
 	BOOL Command_MoveBackTarget(int mENEMY_Command_X, int mENEMY_Command_Y, int Mouse_X, int Mouse_Y)
 	{
 		if (Mouse_X >= mENEMY_Command_X - 30 && Mouse_X <= mENEMY_Command_X + 30
-			&& Mouse_Y >= mENEMY_Command_Y - 90 && Mouse_Y <= mENEMY_Command_Y + 30)
+			&& Mouse_Y >= mENEMY_Command_Y - 90 && Mouse_Y <= mENEMY_Command_Y - 30)
 		{
 			int temp = 0;
 			return TRUE;

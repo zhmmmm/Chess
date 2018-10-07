@@ -47,7 +47,6 @@ int Piece_Logic::ReturnCommand_State_Y = 0;
 int Piece_Logic::mWE_Command_Y = 590;
 void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y)//Æå×Ó¡¶½«¡· µÄÂß¼­
 {
-
 	if((Which == 1 && State == 1))
 	{
 		if (Mouse_X >= mWE_Command_X - 30 && Mouse_X <= mWE_Command_X + 30

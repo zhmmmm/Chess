@@ -22,9 +22,9 @@ class ENEMY_Command :public Piece,public Piece_Logic,public ENEMY_Command_Logic 
 {
 	int mCommand_Bmpid = 0;
 	int mRedCursor_Bmpid = 0;
-
-	int mCommand_X = 0;
-	int mCommand_Y = 0;
+	int mENEMY_CommandState = 0;
+	int mENEMY_Command_X = 0;
+	int mENEMY_Command_Y = 0;
 
 
 	RedCur mRedCur;//红色方当前有初始光标坐标
@@ -35,8 +35,8 @@ class ENEMY_Command :public Piece,public Piece_Logic,public ENEMY_Command_Logic 
 public:
 	ENEMY_Command()
 	{
-		mCommand_X = 290;
-		mCommand_Y = 50;
+		mENEMY_Command_X = 290;
+		mENEMY_Command_Y = 50;
 		mRedCur.x = 290;
 		mRedCur.y = 290;
 		for (int i = 0; i < 10; i++)//得到标准坐标
@@ -61,7 +61,7 @@ public:
 	}
 	void RenderPiece()
 	{
-		m.Translate(mCommand_X, mCommand_Y);
+		m.Translate(mENEMY_Command_X, mENEMY_Command_Y);
 		GoBitmap->SetWorldTransform(m);
 		GoBitmap->DrawBmp2(mCommand_Bmpid, -30, -30, 60, 60, 0, 0, 60, 60, 0XFF00FF);
 		m.Identity();
@@ -83,32 +83,36 @@ public:
 			RenderCursor();//渲染红色光标
 			if (Which == 1 && State == 1)
 			{
-				if (true)//将军越界范围
+				if (x>= mENEMY_Command_X - 30 && x <= mENEMY_Command_X + 30
+					&&y >= mENEMY_Command_Y - 30 && y <= mENEMY_Command_Y + 30
+					&& Which == 1 && State == 1)
 				{
-
+					if (mENEMY_CommandState == 0)//将军的锁定
+					{
+						mENEMY_CommandState = 1;
+					}
 				}
-				if (true)//将军可以行走的范围
+				if (mENEMY_CommandState == 1 && ((x >= 200 && x <= 380) || (y >= 20 && y <= 200)))//将军可以行走的范围
 				{
 					BOOL BoolForward = FALSE;
-					BoolForward = ENEMY_Command_Logic::Command_MoveForwardTarget(mCommand_X, mCommand_Y,x,y);
+					BoolForward = ENEMY_Command_Logic::Command_MoveForwardTarget(mENEMY_Command_X, mENEMY_Command_Y,x,y);
 					BOOL BoolBack = FALSE;
-					BoolBack = ENEMY_Command_Logic::Command_MoveBackTarget(mCommand_X, mCommand_Y, x, y);
+					BoolBack = ENEMY_Command_Logic::Command_MoveBackTarget(mENEMY_Command_X, mENEMY_Command_Y, x, y);
 					BOOL BoolLeft = FALSE;
-					BoolLeft = ENEMY_Command_Logic::Command_MoveLeftTarget(mCommand_X, mCommand_Y, x, y);
+					BoolLeft = ENEMY_Command_Logic::Command_MoveLeftTarget(mENEMY_Command_X, mENEMY_Command_Y, x, y);
 					BOOL BoolRight = FALSE;
-					BoolRight =ENEMY_Command_Logic::Command_MoveRightTarget(mCommand_X, mCommand_Y, x, y);
+					BoolRight =ENEMY_Command_Logic::Command_MoveRightTarget(mENEMY_Command_X, mENEMY_Command_Y, x, y);
 					__ENEMY_Command_Logic__(BoolForward,BoolBack,BoolLeft,BoolRight);
 				}
+
+
 			}
 
 
 		}
-
 	}
 	int __ENEMY_Command_Logic__(BOOL BoolForward, BOOL BoolBack, BOOL BoolLeft, BOOL BoolRight)
 	{
-
-
 		if (BoolForward)
 		{
 			for (int i = 0; i < 12; i++)
@@ -120,13 +124,13 @@ public:
 					{
 						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200)//主将前面是空地
 						{
-							//ReturnCommand_State_Y--;
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
 							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
-							mCommand_Y += 60;
-
+							mENEMY_Command_Y += 60;
+							mENEMY_CommandState = 0;
+							Piece::Change_mWe(0);
 							ifok = true;
 							break;
 						}
@@ -136,88 +140,88 @@ public:
 			}
 			return 1;
 		}
-		//if (BoolBack)
-		//{
-		//	for (int i = 0; i < 12; i++)
-		//	{
-		//		bool ifok = false;
-		//		for (int j = 0; j < 11; j++)
-		//		{
-		//			if (mMouseDownRange[i][j] == 5)//索引到棋子将军
-		//			{
-		//				if (mMouseDownRange[i + 1][j] >= 200)//主将后面是空地
-		//				{
-		//					ReturnCommand_State_Y++;
-		//					//在移动完了之后重新设置将军的坐标
-		//					int Temp = mMouseDownRange[i][j];
-		//					mMouseDownRange[i][j] = mMouseDownRange[i + 1][j];
-		//					mMouseDownRange[i + 1][j] = Temp;
-		//					mWE_Command_Y += 60;
-
-		//					ifok = true;
-		//					break;
-		//				}
-		//			}
-		//		}
-		//		if (ifok) { break; }
-		//	}
-		//	return 2;
-		//}
-		//if (BoolLeft)
-		//{
-		//	for (int i = 0; i < 12; i++)
-		//	{
-		//		bool ifok = false;
-		//		for (int j = 0; j < 11; j++)
-		//		{
-		//			if (mMouseDownRange[i][j] == 5)//索引到棋子将军
-		//			{
-		//				if (mMouseDownRange[i][j - 1] >= 200)//主将左边是空地
-		//				{
-		//					ReturnCommand_State_X--;
-		//					//在移动完了之后重新设置将军的坐标
-		//					int Temp = mMouseDownRange[i][j];
-		//					mMouseDownRange[i][j] = mMouseDownRange[i][j - 1];
-		//					mMouseDownRange[i][j - 1] = Temp;
-		//					mWE_Command_X -= 60;
-
-		//					ifok = true;
-		//					break;
-		//				}
-		//			}
-		//		}
-		//		if (ifok) { break; }
-		//	}
-		//	return 3;
-		//}
-		//if (BoolRight)
-		//{
-		//	for (int i = 0; i < 12; i++)
-		//	{
-		//		bool ifok = false;
-		//		for (int j = 0; j < 11; j++)
-		//		{
-		//			if (mMouseDownRange[i][j] == 5)//索引到棋子将军
-		//			{
-		//				if (mMouseDownRange[i][j + 1] >= 200)//主将右边是空地
-		//				{
-		//					ReturnCommand_State_X++;
-		//					//在移动完了之后重新设置将军的坐标
-		//					int Temp = mMouseDownRange[i][j];
-		//					mMouseDownRange[i][j] = mMouseDownRange[i][j + 1];
-		//					mMouseDownRange[i][j + 1] = Temp;
-		//					mWE_Command_X += 60;
-
-		//					ifok = true;
-		//					break;
-		//				}
-		//			}
-		//		}
-		//		if (ifok) { break; }
-		//	}
-		//	return 4;
-		//}
-		//return 0;
+		if (BoolBack)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					{
+						if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200)//主将后面是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
+							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
+							mENEMY_Command_Y -= 60;
+							mENEMY_CommandState = 0;
+							Piece::Change_mWe(0);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 2;
+		}
+		if (BoolLeft)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					{
+						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200)//主将左边是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j + 1];
+							Piece_Logic::mMouseDownRange[i][j + 1] = Temp;
+							mENEMY_Command_X += 60;
+							mENEMY_CommandState = 0;
+							Piece::Change_mWe(0);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 3;
+		}
+		if (BoolRight)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 5)//索引到棋子将军
+					{
+						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200)//主将右边是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j - 1];
+							Piece_Logic::mMouseDownRange[i][j - 1] = Temp;
+							mENEMY_Command_X -= 60;
+							mENEMY_CommandState = 0;
+							Piece::Change_mWe(0);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 4;
+		}
+		return 0;
 	}
 	void RedCursorStandardCoor(int Which, int State,int Mouse_X, int Mouse_Y)//得到红色光标的标准位置
 	{
