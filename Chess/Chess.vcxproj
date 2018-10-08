@@ -183,6 +183,7 @@
     <ClInclude Include="WE_Left_Elephant.h" />
     <ClInclude Include="WE_Left_Horse.h" />
     <ClInclude Include="WE_Left_Man.h" />
+    <ClInclude Include="WE_Left_Man_Logic.h" />
     <ClInclude Include="WE_Right_Cannon.h" />
     <ClInclude Include="WE_Right_Chariot.h" />
     <ClInclude Include="WE_Right_Elephant.h" />

@@ -27,9 +27,9 @@ public:
 
 	//所有棋子所表示的范围
 	//我方棋子
-private:
+public:
 	static int mWE_Command_X;//我方主将的X
-	static int mWE_CommandState;
+	static int mWE_CommandState;//这个全局都在用，
 	static int mWE_Command_Y;
 
 	//敌方棋子
@@ -54,7 +54,7 @@ private:
 	Vector2D mCoor;
 public:
 	Piece_Logic();
-	void InitDate();
+	void InitData();
 	void InitBlue_Cursor();//初始化蓝色光标
 	void RenderBlue_Cursor();//绘制蓝色光标
 	void BlueCursorStandardCoor(int Mouse_X,int Mouse_Y);//得到蓝色光标的标准位置

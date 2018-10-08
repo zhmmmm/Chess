@@ -176,5 +176,8 @@
     <ClInclude Include="ENEMY_Command_Logic.h">
       <Filter>ENEMY</Filter>
     </ClInclude>
+    <ClInclude Include="WE_Left_Man_Logic.h">
+      <Filter>WE</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

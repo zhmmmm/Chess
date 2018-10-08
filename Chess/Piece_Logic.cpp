@@ -30,7 +30,7 @@ int Piece_Logic::mMouseDownRange[12][11] = //200到257为空地
 	楚河                                                汉界
 	*/
 	999,    229,        230,     231,       232,       233,     234,       235,     236,      237,     999,
-	999,    17,          238,     16,         239,        15,       240,      14,        241,      13,        999,
+	999,    17,          238,     16,         239,        15,       240,       14,        241,      13,        999,
 	999,    242,       12,        243,       244,        245,     246,      247,      11,       248,      999,
 	999,    249,       250,     251,        252,        253,     254,      255,      256,      257,     999,
 	999,    9,           8,           7,             6,             5,         4,            3,          2,           1,         999,
@@ -53,15 +53,14 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 			&& Mouse_Y >= mWE_Command_Y - 30 && Mouse_Y <= mWE_Command_Y + 30
 			&& Which == 1 && State == 1)//蓝色光标锁定了我的主将
 		{
-			if (mWE_CommandState == 0)
+			if (mWE_CommandState == 0 || mWE_CommandState)
 			{
-				mWE_CommandState = 1;//我方主将被光标锁定准备寻找攻击目标
+				mWE_CommandState = 5;//我方主将被光标锁定准备寻找攻击目标
 			}
+
 		}
-
 		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到蓝色光标的标准位置
-
-		if (mWE_CommandState == 1)/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
+		if (mWE_CommandState == 5)/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
 		{
 			BOOL BoolForward = FALSE;
 			BoolForward = Command_Logic::Command_MoveForwardTarget(mWE_Command_X, mWE_Command_Y, Mouse_X, Mouse_Y);
@@ -218,9 +217,9 @@ void Piece_Logic::InitBlue_Cursor()//初始化蓝色光标
 }
 Piece_Logic::Piece_Logic()//Piece_Logic的构造函数
 {
-	InitDate();
+	InitData();
 }
-void Piece_Logic::InitDate()
+void Piece_Logic::InitData()
 {
 	mBlueCur.x = 290;
 	mBlueCur.y = 350;

@@ -92,6 +92,7 @@ public:
 						mENEMY_CommandState = 1;
 					}
 				}
+
 				if (mENEMY_CommandState == 1)//将军可以行走的范围
 				{
 					BOOL BoolForward = FALSE;
