@@ -64,7 +64,7 @@ public:
 					BoolLeftBack = WE_Left_Man_Logic::Man_MoveLeftTarget(mWE_Left_Man_X, mWE_Left_Man_Y, Mouse_X, Mouse_Y);
 					BOOL BoolRightBack = FALSE;
 					BoolRightBack = WE_Left_Man_Logic::Man_MoveRightTarget(mWE_Left_Man_X, mWE_Left_Man_Y, Mouse_X, Mouse_Y);
-					__WE_Left_Man_Logic___(BoolLeftForward, BoolRightForward, BoolLeftBack, BoolRightBack);
+					int TempVar = __WE_Left_Man_Logic___(BoolLeftForward, BoolRightForward, BoolLeftBack, BoolRightBack);
 				}
 			}
 		}

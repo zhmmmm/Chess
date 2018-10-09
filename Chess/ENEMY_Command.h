@@ -87,13 +87,13 @@ public:
 					&&y >= mENEMY_Command_Y - 30 && y <= mENEMY_Command_Y + 30
 					&& Which == 1 && State == 1)
 				{
-					if (mENEMY_CommandState == 0)//将军的锁定
+					if (Piece_Logic::mWE_CommandState || Piece_Logic::mWE_CommandState == 0)//将军的锁定
 					{
-						mENEMY_CommandState = 1;
+						Piece_Logic::mWE_CommandState = 50;
 					}
 				}
 
-				if (mENEMY_CommandState == 1)//将军可以行走的范围
+				if (Piece_Logic::mWE_CommandState == 50)//将军可以行走的范围
 				{
 					BOOL BoolForward = FALSE;
 					BoolForward = ENEMY_Command_Logic::Command_MoveForwardTarget(mENEMY_Command_X, mENEMY_Command_Y,x,y);
@@ -105,11 +105,7 @@ public:
 					BoolRight =ENEMY_Command_Logic::Command_MoveRightTarget(mENEMY_Command_X, mENEMY_Command_Y, x, y);
 					__ENEMY_Command_Logic__(BoolForward,BoolBack,BoolLeft,BoolRight);
 				}
-
-
 			}
-
-
 		}
 	}
 	int __ENEMY_Command_Logic__(BOOL BoolForward, BOOL BoolBack, BOOL BoolLeft, BOOL BoolRight)
@@ -130,7 +126,7 @@ public:
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i + 1][j];
 							Piece_Logic::mMouseDownRange[i + 1][j] = Temp;
 							mENEMY_Command_Y += 60;
-							mENEMY_CommandState = 0;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
 							Piece::Change_mWe(0);
 							ifok = true;
 							break;
@@ -157,7 +153,7 @@ public:
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
 							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
 							mENEMY_Command_Y -= 60;
-							mENEMY_CommandState = 0;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
 							Piece::Change_mWe(0);
 							ifok = true;
 							break;
@@ -184,7 +180,7 @@ public:
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j + 1];
 							Piece_Logic::mMouseDownRange[i][j + 1] = Temp;
 							mENEMY_Command_X += 60;
-							mENEMY_CommandState = 0;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
 							Piece::Change_mWe(0);
 							ifok = true;
 							break;
@@ -211,7 +207,7 @@ public:
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j - 1];
 							Piece_Logic::mMouseDownRange[i][j - 1] = Temp;
 							mENEMY_Command_X -= 60;
-							mENEMY_CommandState = 0;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
 							Piece::Change_mWe(0);
 							ifok = true;
 							break;

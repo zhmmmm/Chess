@@ -179,5 +179,8 @@
     <ClInclude Include="WE_Command_Logic.h">
       <Filter>WE</Filter>
     </ClInclude>
+    <ClInclude Include="WE_Right_Man_Logic.h">
+      <Filter>WE</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,6 +6,9 @@
 #include "Vector.h"
 #include "WE_Command_Logic.h"
 
+/*
+从士开始，后面的范围逻辑都是继承过来的
+*/
 
 struct BlueCur
 {

@@ -189,6 +189,7 @@
     <ClInclude Include="WE_Right_Elephant.h" />
     <ClInclude Include="WE_Right_Horse.h" />
     <ClInclude Include="WE_Right_Man.h" />
+    <ClInclude Include="WE_Right_Man_Logic.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
