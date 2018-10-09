@@ -147,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bitbmp.h" />
-    <ClInclude Include="Command_Logic.h" />
+    <ClInclude Include="WE_Command_Logic.h" />
     <ClInclude Include="ENEMY_0_Soldier.h" />
     <ClInclude Include="ENEMY_1_Soldier.h" />
     <ClInclude Include="ENEMY_2_Soldier.h" />

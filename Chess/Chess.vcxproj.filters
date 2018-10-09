@@ -80,9 +80,6 @@
     <ClInclude Include="ENEMY_Command.h">
       <Filter>ENEMY</Filter>
     </ClInclude>
-    <ClInclude Include="Command_Logic.h">
-      <Filter>WE</Filter>
-    </ClInclude>
     <ClInclude Include="WE_Left_Man.h">
       <Filter>WE</Filter>
     </ClInclude>
@@ -177,6 +174,9 @@
       <Filter>ENEMY</Filter>
     </ClInclude>
     <ClInclude Include="WE_Left_Man_Logic.h">
+      <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="WE_Command_Logic.h">
       <Filter>WE</Filter>
     </ClInclude>
   </ItemGroup>

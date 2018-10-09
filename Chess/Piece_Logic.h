@@ -4,7 +4,7 @@
 #include "Bitbmp.h"
 #include "Matrix3.h"
 #include "Vector.h"
-#include "Command_Logic.h"
+#include "WE_Command_Logic.h"
 
 
 struct BlueCur
