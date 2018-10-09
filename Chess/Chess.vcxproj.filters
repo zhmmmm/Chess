@@ -48,6 +48,9 @@
     <ClCompile Include="Piece_Logic.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="_____Elephant__TO__Soldier__Logic__.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix3.h">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="WE_Right_Man_Logic.h">
       <Filter>WE</Filter>
+    </ClInclude>
+    <ClInclude Include="_____Elephant__TO__Soldier__Logic__.h">
+      <Filter>棋子</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

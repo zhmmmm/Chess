@@ -144,6 +144,7 @@
     <ClCompile Include="Piece_Housekeeper.cpp" />
     <ClCompile Include="Piece_Logic.cpp" />
     <ClCompile Include="wWinMain.cpp" />
+    <ClCompile Include="_____Elephant__TO__Soldier__Logic__.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bitbmp.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="WE_Right_Horse.h" />
     <ClInclude Include="WE_Right_Man.h" />
     <ClInclude Include="WE_Right_Man_Logic.h" />
+    <ClInclude Include="_____Elephant__TO__Soldier__Logic__.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

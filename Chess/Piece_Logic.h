@@ -32,7 +32,7 @@ public:
 	//我方棋子
 public:
 	static int mWE_Command_X;//我方主将的X
-	static int mWE_CommandState;//这个全局都在用，
+	static int mWE_CommandState;//左右棋子根据这个是否哪一个棋可以走
 	static int mWE_Command_Y;
 
 	//敌方棋子

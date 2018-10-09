@@ -41,7 +41,7 @@ int Piece_Logic::mMouseDownRange[12][11] = //200到257为空地
 
 //我方
 int Piece_Logic::mWE_Command_X = 290;
-int Piece_Logic::mWE_CommandState = 0;//主将是否被锁定
+int Piece_Logic::mWE_CommandState = 0;//哪一个棋是否被锁定
 int Piece_Logic::ReturnCommand_State_X = 0;
 int Piece_Logic::ReturnCommand_State_Y = 0;
 int Piece_Logic::mWE_Command_Y = 590;
