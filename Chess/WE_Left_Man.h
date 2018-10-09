@@ -57,6 +57,8 @@ public:
 				if (Piece_Logic::mWE_CommandState == 6)//左边的士被锁定
 				{
 					BOOL BoolLeftForward = FALSE;
+					//BoolLeftForward = _____Elephant__TO__Soldier__Logic__::Man_MoveForwardTarget(mWE_Left_Man_X, mWE_Left_Man_Y,Mouse_X,Mouse_Y);
+					//这样用也可以
 					BoolLeftForward = WE_Left_Man_Logic::Man_MoveForwardTarget(mWE_Left_Man_X, mWE_Left_Man_Y,Mouse_X,Mouse_Y);
 					BOOL BoolRightForward = FALSE;
 					BoolRightForward = WE_Left_Man_Logic::Man_MoveBackTarget(mWE_Left_Man_X, mWE_Left_Man_Y, Mouse_X, Mouse_Y);
