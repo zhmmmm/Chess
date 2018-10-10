@@ -7,7 +7,7 @@
 #include "_____Elephant__TO__Soldier__Logic__.h"
 
 //左边的車
-class WE_Left_Chariot :public Piece, public Piece_Logic,public _____Elephant__TO__Soldier__Logic__
+class WE_Left_Chariot :public Piece, public Piece_Logic, public _____Elephant__TO__Soldier__Logic__
 {
 	int mChariot_Bmpid = 0;
 	int mWE_Left_Chariot_X = 0;
@@ -76,22 +76,48 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
+					bool IfOkMove = false;
 					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
 					{
 						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
 						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
+						int Move_Y = (mWE_Left_Chariot_Y - Temp_Y) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
+						for (int k = 0; k < Move_Y; k++)//进行巡路是否可以行走，可以走多少
+						{
+							if (Piece_Logic::mMouseDownRange[i - (k + 1)][j] >= 200 && Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999)
+							{
+								IfOkMove = true;
+							}
+							else
+							{
+								IfOkMove = false;
+								break;
+							}
+							if (IfOkMove == false) //只要是一次false就是不行的
+							{
+								break; 
+							}
+							if (IfOkMove)
+							{
+								int Temp = Piece_Logic::mMouseDownRange[i][j];
+								Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - Move_Y][j];
+								Piece_Logic::mMouseDownRange[i - Move_Y][j] = Temp;
+								mWE_Left_Chariot_Y -= (Move_Y * 60);
+
+								Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+								Piece::Change_mWe(1);
+								ifok = true;
+								break;
+							}
+						}
 					}
 				}
 				if (ifok) { break; }
 			}
 			return 1;
 		}
-		//Piece_Logic::__WE__mWE_CommandState(0);//这里重要
-		//Piece::Change_mWe(1);
-		//ifok = true;
-		//break;
 		return 0;
 	}
 };
