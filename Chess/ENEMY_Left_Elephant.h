@@ -9,8 +9,8 @@
 class ENEMY_Left_Elephant:public Piece,public Piece_Logic, public _____Elephant__TO__Soldier__Logic__
 {
 	int mENEMY_Left_Elephant_Bmpid = 0;
-	float mENEMY_Left_Elephant_X;
-	float mENEMY_Left_Elephant_Y;
+	int mENEMY_Left_Elephant_X;
+	int mENEMY_Left_Elephant_Y;
 
 
 

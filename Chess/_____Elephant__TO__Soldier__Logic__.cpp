@@ -198,3 +198,5 @@ BOOL _____Elephant__TO__Soldier__Logic__::Man_MoveRightTarget(int mPUBLIC_Man_X,
 	return FALSE;
 }
 
+
+
