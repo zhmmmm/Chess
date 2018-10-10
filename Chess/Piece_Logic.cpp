@@ -1,5 +1,8 @@
 #include "Piece_Logic.h"
 
+
+BlueCur Piece_Logic::mReturnBlueCurCoor = { 0,0 };
+
 int Piece_Logic::mMap[12][11] = //1到17为我方所有棋子，10到170为敌方棋子
 {
 		999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999,
@@ -37,8 +40,6 @@ int Piece_Logic::mMouseDownRange[12][11] = //200到257为空地
 	999,    999,      999,      999,        999,       999,     999,      999,      999,      999,       999,
 };
 
-//敌方
-
 //我方
 int Piece_Logic::mWE_Command_X = 290;
 int Piece_Logic::mWE_CommandState = 0;//哪一个棋是否被锁定
@@ -60,6 +61,7 @@ void Piece_Logic::__Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y
 
 		}
 		BlueCursorStandardCoor(Mouse_X, Mouse_Y);//得到蓝色光标的标准位置
+		__Return_mBlueStandardCoor___();
 		if (mWE_CommandState == 5)/*这里判断了有未知Bug	&&Mouse_X >= 200 && Mouse_X <= 280 （&&“这里为什么要或者”） Mouse_Y >= 440 && Mouse_Y <= 620*/
 		{
 			BOOL BoolForward = FALSE;
@@ -189,6 +191,7 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 	}
 	return 0;
 }
+
 void Piece_Logic::__WE__mWE_CommandState(int WE_CommandState)//移动完了为棋子解锁
 {
 	this->mWE_CommandState = WE_CommandState;
@@ -255,7 +258,13 @@ void Piece_Logic::BlueCursorStandardCoor(int Mouse_X, int Mouse_Y)
 				//蓝色光标的得到标准坐标
 				mBlueCur.x = mBlueStandardCoor[i][j].x;
 				mBlueCur.y = mBlueStandardCoor[i][j].y;
+				mReturnBlueCurCoor.x = mBlueCur.x;
+				mReturnBlueCurCoor.y = mBlueCur.y;
 			}
 		}
 	}
+}
+BlueCur Piece_Logic::__Return_mBlueStandardCoor___()
+{
+	return mReturnBlueCurCoor;
 }

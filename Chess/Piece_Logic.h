@@ -27,26 +27,15 @@ class Piece_Logic:public Command_Logic
     static int mMap[12][11];//地图
 public:
 	static int mMouseDownRange[12][11];//鼠标按下范围代表的值
-
-	//所有棋子所表示的范围
-	//我方棋子
 public:
 	static int mWE_Command_X;//我方主将的X
 	static int mWE_CommandState;//左右棋子根据这个是否哪一个棋可以走
 	static int mWE_Command_Y;
-
-	//敌方棋子
-
-
-
-
-
 	//通过让棋子调用的此值，达到朝那个方向移动，移动多少
 	static int ReturnCommand_State_X;
 	static int ReturnCommand_State_Y;
-
-
-
+	//返回蓝色光标的标准坐标
+	static BlueCur mReturnBlueCurCoor;
 	//==============================================
 	//上面为静态的
 	int BlueCur_Bmpid = 0;
@@ -61,6 +50,7 @@ public:
 	void InitBlue_Cursor();//初始化蓝色光标
 	void RenderBlue_Cursor();//绘制蓝色光标
 	void BlueCursorStandardCoor(int Mouse_X,int Mouse_Y);//得到蓝色光标的标准位置
+	BlueCur __Return_mBlueStandardCoor___();
 
 	void __Piece_Logic__(int Which, int State, int Mouse_X, int Mouse_Y);//棋子《将》 的逻辑
 	int __WE__PieceCommand_Logic___(BOOL BoolForward, BOOL BoolBack, BOOL Left, BOOL Right);//我方棋子将军逻辑

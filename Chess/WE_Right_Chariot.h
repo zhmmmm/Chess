@@ -4,9 +4,10 @@
 #include "Vector.h"
 #include "Piece.h"
 #include "Piece_Logic.h"
+#include "_____Elephant__TO__Soldier__Logic__.h"
 
 //右边的車
-class WE_Right_Chariot :public Piece, public Piece_Logic
+class WE_Right_Chariot :public Piece, public Piece_Logic,public _____Elephant__TO__Soldier__Logic__
 {
 	int mChariot_Bmpid = 0;
 	int mWE_Right_Chariot_X = 0;
@@ -37,7 +38,7 @@ public:
 		m.Identity();
 		GoBitmap->SetWorldTransform(m);
 	}
-	void PieceLogicUpdata(int Which, int State, int x, int y)  //棋子逻辑更新
+	void PieceLogicUpdata(int Which, int State, int Mouse_X, int Mouse_Y)  //棋子逻辑更新
 	{
 
 	}

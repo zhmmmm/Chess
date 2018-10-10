@@ -340,3 +340,42 @@ BOOL _____Elephant__TO__Soldier__Logic__::_7__Horse_MoveRightTarget(int mPUBLIC_
 	return FALSE;
 }
 
+
+//܇
+//ǰ
+BOOL _____Elephant__TO__Soldier__Logic__::Chariot_MoveForwardTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Chariot_X - 30 && Mouse_X <= mPUBLIC_Chariot_X + 30
+		&& Mouse_Y > 20 && Mouse_Y < mPUBLIC_Chariot_Y - 30)
+	{
+		return TRUE;
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::Chariot_MoveBackTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Chariot_X - 30 && Mouse_X <= mPUBLIC_Chariot_X + 30
+		&& Mouse_Y > mPUBLIC_Chariot_Y + 30 && Mouse_Y < 620)
+	{
+		return TRUE;
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::Chariot_MoveLeftTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X > 20 && Mouse_X <= mPUBLIC_Chariot_X - 30
+		&& Mouse_Y >= mPUBLIC_Chariot_Y - 30 && Mouse_Y <= mPUBLIC_Chariot_Y + 30)
+	{
+		return TRUE;
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::Chariot_MoveRightTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Chariot_X + 30 && Mouse_X < 560
+		&& Mouse_Y >= mPUBLIC_Chariot_X - 30 && Mouse_Y <= mPUBLIC_Chariot_Y + 30)
+	{
+		return TRUE;
+	}
+	return FALSE;
+}

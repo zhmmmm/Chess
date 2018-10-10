@@ -4,9 +4,10 @@
 #include "Vector.h"
 #include "Piece.h"
 #include "Piece_Logic.h"
+#include "_____Elephant__TO__Soldier__Logic__.h"
 
 //左边的車
-class WE_Left_Chariot :public Piece, public Piece_Logic
+class WE_Left_Chariot :public Piece, public Piece_Logic,public _____Elephant__TO__Soldier__Logic__
 {
 	int mChariot_Bmpid = 0;
 	int mWE_Left_Chariot_X = 0;
@@ -37,8 +38,60 @@ public:
 		m.Identity();
 		GoBitmap->SetWorldTransform(m);
 	}
-	void PieceLogicUpdata(int Which, int State, int x, int y)  //棋子逻辑更新
+	void PieceLogicUpdata(int Which, int State, int Mouse_X, int Mouse_Y)  //棋子逻辑更新
 	{
+		if (Piece::Reutrn_mWe() == 0)//0表示我可以走棋了
+		{
+			if (Which == 1 && State == 1)
+			{
+				if (Mouse_X >= mWE_Left_Chariot_X - 30 && Mouse_X <= mWE_Left_Chariot_X + 30
+					&& Mouse_Y >= mWE_Left_Chariot_Y - 30 && Mouse_Y <= mWE_Left_Chariot_Y + 30)
+				{
+					if (Piece_Logic::mWE_CommandState || Piece_Logic::mWE_CommandState == 0)
+					{
+						Piece_Logic::mWE_CommandState = 9;//左边的車被锁定
+					}
+				}
+				if (Piece_Logic::mWE_CommandState == 9)//左边的車被锁定
+				{
+					BOOL BoolLeftForward = FALSE;
+					BoolLeftForward = _____Elephant__TO__Soldier__Logic__::Chariot_MoveForwardTarget(mWE_Left_Chariot_X, mWE_Left_Chariot_Y, Mouse_X, Mouse_Y);
+					BOOL BoolRightForward = FALSE;
+					BoolRightForward = _____Elephant__TO__Soldier__Logic__::Chariot_MoveBackTarget(mWE_Left_Chariot_X, mWE_Left_Chariot_Y, Mouse_X, Mouse_Y);
+					BOOL BoolLeftBack = FALSE;
+					BoolLeftBack = _____Elephant__TO__Soldier__Logic__::Chariot_MoveLeftTarget(mWE_Left_Chariot_X, mWE_Left_Chariot_Y, Mouse_X, Mouse_Y);
+					BOOL BoolRightBack = FALSE;
+					BoolRightBack = _____Elephant__TO__Soldier__Logic__::Chariot_MoveRightTarget(mWE_Left_Chariot_X, mWE_Left_Chariot_Y, Mouse_X, Mouse_Y);
+					int TempVar = __WE_Left_Chariot___(BoolLeftForward, BoolRightForward, BoolLeftBack, BoolRightBack);
+				}
+			}
+		}
+	}
+	int __WE_Left_Chariot___(BOOL BoolLeftForward, BOOL BoolRightForward, BOOL BoolLeftBack, BOOL BoolRightBack)
+	{
+		if (BoolLeftForward)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
+					{
+						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
+						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
+
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 1;
+		}
+		//Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+		//Piece::Change_mWe(1);
+		//ifok = true;
+		//break;
+		return 0;
 	}
 };
