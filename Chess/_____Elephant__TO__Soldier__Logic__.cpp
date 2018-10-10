@@ -66,7 +66,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::Elephant_MoveRightTarget(int mPUBLIC_E
 	return FALSE;
 }
 
-//敌方
+//敌方象
 BOOL _____Elephant__TO__Soldier__Logic__::ENEMY_Elephant_MoveForwardTarget(int mPUBLIC_Elephant_X, int mPUBLIC_Elephant_Y, int Mouse_X, int Mouse_Y)
 {
 	if (Mouse_X >= mPUBLIC_Elephant_X - 150 && Mouse_X <= mPUBLIC_Elephant_X - 90
@@ -198,5 +198,145 @@ BOOL _____Elephant__TO__Soldier__Logic__::Man_MoveRightTarget(int mPUBLIC_Man_X,
 	return FALSE;
 }
 
+//马的八个方向
+//马向左前
+BOOL _____Elephant__TO__Soldier__Logic__::_0__Horse_MoveForwardTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X - 90 && Mouse_X <= mPUBLIC_Horse_X - 30
+		&& Mouse_Y >= mPUBLIC_Horse_Y - 150 && Mouse_Y <= mPUBLIC_Horse_Y - 90)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::_1__Horse_MoveBackTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X + 30 && Mouse_X <= mPUBLIC_Horse_X + 90
+		&& Mouse_Y >= mPUBLIC_Horse_Y - 150 && Mouse_Y <= mPUBLIC_Horse_Y - 90)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
 
+BOOL _____Elephant__TO__Soldier__Logic__::_2__Horse_MoveLeftTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X - 150 && Mouse_X <= mPUBLIC_Horse_X - 90
+		&& Mouse_Y >= mPUBLIC_Horse_Y - 90 && Mouse_Y <= mPUBLIC_Horse_Y - 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::_3__Horse_MoveRightTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X + 90 && Mouse_X <= mPUBLIC_Horse_X + 150
+		&& Mouse_Y >= mPUBLIC_Horse_Y - 90 && Mouse_Y <= mPUBLIC_Horse_Y - 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+//马后退
+BOOL _____Elephant__TO__Soldier__Logic__::_4__Horse_MoveForwardTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X - 150 && Mouse_X <= mPUBLIC_Horse_X - 90
+		&& Mouse_Y >= mPUBLIC_Horse_Y + 30 && Mouse_Y <= mPUBLIC_Horse_Y + 90)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y > 620)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::_5__Horse_MoveBackTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X + 90 && Mouse_X <= mPUBLIC_Horse_X + 150
+		&& Mouse_Y >= mPUBLIC_Horse_Y + 30 && Mouse_Y <= mPUBLIC_Horse_Y + 90)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y > 620)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+BOOL _____Elephant__TO__Soldier__Logic__::_6__Horse_MoveLeftTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X - 90 && Mouse_X <= mPUBLIC_Horse_X - 30
+		&& Mouse_Y >= mPUBLIC_Horse_Y + 90 && Mouse_Y <= mPUBLIC_Horse_Y + 150)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y > 620)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::_7__Horse_MoveRightTarget(int mPUBLIC_Horse_X, int mPUBLIC_Horse_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Horse_X + 30 && Mouse_X <= mPUBLIC_Horse_X + 90
+		&& Mouse_Y >= mPUBLIC_Horse_Y + 30 && Mouse_Y <= mPUBLIC_Horse_Y + 150)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y > 620)
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
 
