@@ -231,7 +231,7 @@ public:
 					if (Mouse_X >= mRedStandardCoor[i][j].x - 30 && Mouse_X <= mRedStandardCoor[i][j].x + 30
 						&& Mouse_Y >= mRedStandardCoor[i][j].y - 30 && Mouse_Y <= mRedStandardCoor[i][j].y + 30)
 					{
-						//蓝色光标的得到标准坐标
+						//得到红色光标的标准坐标
 						mRedCur.x = mRedStandardCoor[i][j].x;
 						mRedCur.y = mRedStandardCoor[i][j].y;
 					}

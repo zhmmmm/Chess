@@ -204,7 +204,7 @@ public:
 				{
 					if (Piece_Logic::mMouseDownRange[i][j] == 20)//索引到棋子右边的马
 					{
-						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 2] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j - 1] != 999)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 2] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 2] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置马的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -233,7 +233,7 @@ public:
 				{
 					if (Piece_Logic::mMouseDownRange[i][j] == 20)//索引到棋子右边的马
 					{
-						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 2] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j + 1] != 999)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 2] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 2] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置马的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -262,7 +262,7 @@ public:
 				{
 					if (Piece_Logic::mMouseDownRange[i][j] == 20)//索引到棋子右边的马
 					{
-						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 2] != 999)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j - 1] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置马的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -291,7 +291,7 @@ public:
 				{
 					if (Piece_Logic::mMouseDownRange[i][j] == 20)//索引到棋子右边的马
 					{
-						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 2] != 999)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i + 1][j] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 2][j + 1] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置马的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
