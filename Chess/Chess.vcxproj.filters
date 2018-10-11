@@ -51,6 +51,9 @@
     <ClCompile Include="_____Elephant__TO__Soldier__Logic__.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="ENEMY_Command.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix3.h">

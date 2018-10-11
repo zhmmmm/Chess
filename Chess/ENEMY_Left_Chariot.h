@@ -5,8 +5,9 @@
 #include "Piece.h"
 #include "Piece_Logic.h"
 #include "_____Elephant__TO__Soldier__Logic__.h"
+#include "ENEMY_Command.h"
 
-class ENEMY_Left_Chariot :public Piece, public Piece_Logic, public _____Elephant__TO__Soldier__Logic__
+class ENEMY_Left_Chariot :public Piece, public Piece_Logic, public _____Elephant__TO__Soldier__Logic__,public ENEMY_Command
 {
 	int mENEMY_Left_Chariot_Bmpid = 0;
 	float mENEMY_Left_Chariot_X;
@@ -79,8 +80,8 @@ public:
 					bool IfOkMove = false;
 					if (Piece_Logic::mMouseDownRange[i][j] == 90)//索引到棋子左边的車
 					{
-						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
-						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
+						int Temp_X = ENEMY_Command::__mReturnRedCurStandardCoor__().x;
+						int Temp_Y = ENEMY_Command::__mReturnRedCurStandardCoor__().y;//得到鼠标点击的标准坐标
 
 						int Move_Y = (mENEMY_Left_Chariot_Y - Temp_Y) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
@@ -128,8 +129,8 @@ public:
 					bool IfOkMove = false;
 					if (Piece_Logic::mMouseDownRange[i][j] == 90)//索引到棋子左边的車
 					{
-						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
-						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
+						int Temp_X = ENEMY_Command::__mReturnRedCurStandardCoor__().x;
+						int Temp_Y = ENEMY_Command::__mReturnRedCurStandardCoor__().y;//得到鼠标点击的标准坐标
 
 						int Move_Y = (Temp_Y - mENEMY_Left_Chariot_Y) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
@@ -177,8 +178,8 @@ public:
 					bool IfOkMove = false;
 					if (Piece_Logic::mMouseDownRange[i][j] == 90)//索引到棋子左边的車
 					{
-						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
-						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
+						int Temp_X = ENEMY_Command::__mReturnRedCurStandardCoor__().x;
+						int Temp_Y = ENEMY_Command::__mReturnRedCurStandardCoor__().y;//得到鼠标点击的标准坐标
 
 						int Move_X = (mENEMY_Left_Chariot_X - Temp_X) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
@@ -226,8 +227,8 @@ public:
 					bool IfOkMove = false;
 					if (Piece_Logic::mMouseDownRange[i][j] == 90)//索引到棋子左边的車
 					{
-						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
-						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
+						int Temp_X = ENEMY_Command::__mReturnRedCurStandardCoor__().x;
+						int Temp_Y = ENEMY_Command::__mReturnRedCurStandardCoor__().y;//得到鼠标点击的标准坐标
 
 						int Move_X = (Temp_X - mENEMY_Left_Chariot_X) / 60;//得到要移动的次数，同时也是目标的Y坐标
 

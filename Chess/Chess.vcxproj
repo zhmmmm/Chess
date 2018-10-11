@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bitbmp.cpp" />
+    <ClCompile Include="ENEMY_Command.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Piece_Housekeeper.cpp" />
     <ClCompile Include="Piece_Logic.cpp" />
