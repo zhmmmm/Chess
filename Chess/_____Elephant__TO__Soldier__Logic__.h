@@ -63,4 +63,14 @@ public:
 	BOOL Chariot_MoveLeftTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y);
 	//ÓÒ
 	BOOL Chariot_MoveRightTarget(int mPUBLIC_Chariot_X, int mPUBLIC_Chariot_Y, int Mouse_X, int Mouse_Y);
+
+	//ÅÚ
+    //Ç°
+	BOOL Cannon_MoveForwardTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
+	//ºó
+	BOOL Cannon_MoveBackTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
+	//×ó
+	BOOL Cannon_MoveLeftTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
+	//ÓÒ
+	BOOL Cannon_MoveRightTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
 };
