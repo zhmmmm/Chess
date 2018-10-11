@@ -418,3 +418,107 @@ BOOL _____Elephant__TO__Soldier__Logic__::Cannon_MoveRightTarget(int mPUBLIC_Can
 	}
 	return FALSE;
 }
+
+//小兵前，左，右
+//前
+BOOL _____Elephant__TO__Soldier__Logic__::Soldier_MoveForwardTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Soldier_X - 30 && Mouse_X <= mPUBLIC_Soldier_X + 30
+		&& Mouse_Y >= mPUBLIC_Soldier_Y - 90 && Mouse_Y <= mPUBLIC_Soldier_Y - 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::Soldier_MoveLeftTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Soldier_X - 90 && Mouse_X <= mPUBLIC_Soldier_X - 30
+		&& Mouse_Y >= mPUBLIC_Soldier_Y - 30 && Mouse_Y <= mPUBLIC_Soldier_Y + 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else if(Mouse_Y < 320)//小兵要过河才能移动
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL _____Elephant__TO__Soldier__Logic__::Soldier_MoveRightTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Soldier_X + 30 && Mouse_X <= mPUBLIC_Soldier_X + 90
+		&& Mouse_Y >= mPUBLIC_Soldier_Y - 30 && Mouse_Y <= mPUBLIC_Soldier_Y + 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else if (Mouse_Y < 320)//小兵要过河才能移动
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+//敌方小兵
+//前，小兵没有后退
+BOOL 	_____Elephant__TO__Soldier__Logic__::ENEMY__Soldier_MoveForwardTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Soldier_X - 30 && Mouse_X <= mPUBLIC_Soldier_X + 30
+		&& Mouse_Y >= mPUBLIC_Soldier_Y + 30 && Mouse_Y <= mPUBLIC_Soldier_Y + 90)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+		return FALSE;
+}
+BOOL 	_____Elephant__TO__Soldier__Logic__::ENEMY__Soldier_MoveLeftTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X >= mPUBLIC_Soldier_X - 90 && Mouse_X <= mPUBLIC_Soldier_X - 30
+		&& Mouse_Y >= mPUBLIC_Soldier_Y - 30 && Mouse_Y <= mPUBLIC_Soldier_Y + 30)
+	{
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else if (Mouse_Y > 320)//小兵要过河才能移动
+		{
+			int temp = 0;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+BOOL 	_____Elephant__TO__Soldier__Logic__::ENEMY__Soldier_MoveRightTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
+{
+	if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+	{
+		return FALSE;
+	}
+	else if (Mouse_Y > 320)//小兵要过河才能移动
+	{
+		int temp = 0;
+		return TRUE;
+	}
+return FALSE;
+}

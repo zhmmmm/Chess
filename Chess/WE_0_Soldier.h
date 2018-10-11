@@ -4,9 +4,10 @@
 #include "Vector.h"
 #include "Piece.h"
 #include "Piece_Logic.h"
+#include "_____Elephant__TO__Soldier__Logic__.h"
 
 //小兵 0 
-class WE_0_Soldier :public Piece, public Piece_Logic
+class WE_0_Soldier :public Piece, public Piece_Logic, public _____Elephant__TO__Soldier__Logic__
 {
 	int mWE_0_Soldier_Bmpid = 0;
 
@@ -38,8 +39,119 @@ public:
 		m.Identity();
 		GoBitmap->SetWorldTransform(m);
 	}
-	void PieceLogicUpdata(int Which, int State, int x, int y)  //棋子逻辑更新
+	void PieceLogicUpdata(int Which, int State, int Mouse_X, int Mouse_Y)  //棋子逻辑更新
 	{
+		if (Piece::Reutrn_mWe() == 0)//0表示我可以走棋了
+		{
+			if (Which == 1 && State == 1)
+			{
+				if (Mouse_X >= mWE_0_Soldier_X - 30 && Mouse_X <= mWE_0_Soldier_X + 30
+					&& Mouse_Y >= mWE_0_Soldier_Y - 30 && Mouse_Y <= mWE_0_Soldier_Y + 30)
+				{
+					if (Piece_Logic::mWE_CommandState || Piece_Logic::mWE_CommandState == 0)
+					{
+						Piece_Logic::mWE_CommandState = 17;//小兵被锁定
+					}
+				}
+				if (Piece_Logic::mWE_CommandState == 17)//小兵被锁定
+				{
+					BOOL BoolForward = FALSE;
+					BOOL BoolLeft = FALSE;
+					BOOL BoolRight = FALSE;
+					BoolForward = _____Elephant__TO__Soldier__Logic__::Soldier_MoveForwardTarget(mWE_0_Soldier_X, mWE_0_Soldier_Y, Mouse_X, Mouse_Y);
+					BoolLeft = _____Elephant__TO__Soldier__Logic__::Soldier_MoveLeftTarget(mWE_0_Soldier_X, mWE_0_Soldier_Y, Mouse_X, Mouse_Y);
+					BoolRight = _____Elephant__TO__Soldier__Logic__::Soldier_MoveRightTarget(mWE_0_Soldier_X, mWE_0_Soldier_Y, Mouse_X, Mouse_Y);
+					int TempVar = __WE_0_Sodier_Logic___(BoolForward, BoolLeft, BoolRight, Mouse_Y);
+				}
+			}
+		}
+	}
+	int __WE_0_Sodier_Logic___(BOOL BoolForward, BOOL BoolLeft, BOOL BoolRight, int Mouse_Y)
+	{
+		if (BoolForward)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 17)
+					{
+						if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j] != 999)//前面是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
+							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
 
+							mWE_0_Soldier_Y -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 1;
+		}
+		if (BoolLeft)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 17)
+					{
+						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i][j - 1] != 999)//前面是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j - 1];
+							Piece_Logic::mMouseDownRange[i][j - 1] = Temp;
+
+							mWE_0_Soldier_X -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 2;
+		}
+		if (BoolRight)
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				bool ifok = false;
+				for (int j = 0; j < 11; j++)
+				{
+					if (Piece_Logic::mMouseDownRange[i][j] == 17)
+					{
+						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i][j + 1] != 999)//前面是空地
+						{
+							//在移动完了之后重新设置将军的坐标
+							int Temp = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j + 1];
+							Piece_Logic::mMouseDownRange[i][j + 1] = Temp;
+
+							mWE_0_Soldier_X += 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+					}
+				}
+				if (ifok) { break; }
+			}
+			return 3;
+		}
+		return 0;
 	}
 };

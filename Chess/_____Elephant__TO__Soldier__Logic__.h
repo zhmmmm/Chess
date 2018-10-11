@@ -73,4 +73,20 @@ public:
 	BOOL Cannon_MoveLeftTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
 	//右
 	BOOL Cannon_MoveRightTarget(int mPUBLIC_Cannon_X, int mPUBLIC_Cannon_Y, int Mouse_X, int Mouse_Y);
+
+	//小兵
+//前，小兵没有后退
+	BOOL Soldier_MoveForwardTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
+	//左
+	BOOL Soldier_MoveLeftTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
+	//右
+	BOOL Soldier_MoveRightTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
+
+		//敌方小兵
+//前，小兵没有后退
+BOOL 	ENEMY__Soldier_MoveForwardTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
+	//左
+	BOOL 	ENEMY__Soldier_MoveLeftTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
+	//右
+	BOOL 	ENEMY__Soldier_MoveRightTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y);
 };
