@@ -33,7 +33,7 @@
 #include "ENEMY_3_Soldier.h"
 #include "ENEMY_4_Soldier.h"
 
-
+#include "Piece_Logic.h"
 
 
 
@@ -75,7 +75,7 @@
 
 
 //所有棋子的管家
-class Piece_Housekeeper
+class Piece_Housekeeper:public Piece_Logic
 {
 	WE_Command *mWE_Command;
 	WE_Left_Man *mWE_Left_Man;

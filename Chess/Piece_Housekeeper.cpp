@@ -40,72 +40,652 @@ void Piece_Housekeeper::InitPiece()
 void Piece_Housekeeper::LoadPiece()
 {
 	WE_GOPIECECOMMAND->RenderPiece();
-	WE_GOLEFTPIECEMAN->RenderPiece();
-	WE_GORIGHTPIECEMAN->RenderPiece();
-	WE_GOLEFTELEPHANT->RenderPiece();
-	WE_GORIGHTELEPHANT->RenderPiece();
-	WE_GOLEFTHORSE->RenderPiece();
-	WE_GORIGHTHORSE->RenderPiece();
-	WE_GOLEFTCHARIOT->RenderPiece();
-	WE_GORIGHTCHARIOT->RenderPiece();
-	WE_GOLEFTCANNON->RenderPiece();
-	WE_GORIGHTCANNON->RenderPiece();
-	WE_GO_0_SOLDIER->RenderPiece();
-	WE_GO_1_SOLDIER->RenderPiece();
-	WE_GO_2_SOLDIER->RenderPiece();
-	WE_GO_3_SOLDIER->RenderPiece();
-	WE_GO_4_SOLDIER->RenderPiece();
+
+	if (true)
+	{
+		//士
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 6)
+				{
+					WE_GOLEFTPIECEMAN->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 4)
+				{
+					WE_GORIGHTPIECEMAN->RenderPiece();
+				}
+			}
+		}
+		//象
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 7)
+				{
+					WE_GOLEFTELEPHANT->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 3)
+				{
+					WE_GORIGHTELEPHANT->RenderPiece();
+				}
+			}
+		}
+		//马
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 8)
+				{
+					WE_GOLEFTHORSE->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 2)
+				{
+					WE_GORIGHTHORSE->RenderPiece();
+				}
+			}
+		}
+		//車
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 9)
+				{
+					WE_GOLEFTCHARIOT->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 1)
+				{
+					WE_GORIGHTCHARIOT->RenderPiece();
+				}
+			}
+		}
+		//炮
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 12)
+				{
+					WE_GOLEFTCANNON->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 11)
+				{
+					WE_GORIGHTCANNON->RenderPiece();
+				}
+			}
+		}
+		//兵
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 17)
+				{
+					WE_GO_0_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 16)
+				{
+					WE_GO_1_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 15)
+				{
+					WE_GO_2_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 14)
+				{
+					WE_GO_3_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 13)
+				{
+					WE_GO_4_SOLDIER->RenderPiece();
+				}
+			}
+		}
+	}
 	//===========================
 	ENEMY__GOPIECECOMMAND->RenderPiece();
-	ENEMY_GOLEFTMAN->RenderPiece();
-	ENEMY_GORIGHTMAN->RenderPiece();
-	ENEMY_GOLEFTELEPHANT->RenderPiece();
-	ENEMY_GORIGHTELEPHANT->RenderPiece();
-	ENEMY_GOLEFTHORSE->RenderPiece();
-	ENEMY_GORIGHTHORSE->RenderPiece();
-	ENEMY_GOLEFTCHARIOT->RenderPiece();
-	ENEMY_GORIGHTCHARIOT->RenderPiece();
-	ENEMY_GOLEFTCANNON->RenderPiece();
-	ENEMY_GORIGHTCANNON->RenderPiece();
-	ENEMY_GO_0_SOLDIER->RenderPiece();
-	ENEMY_GO_1_SOLDIER->RenderPiece();
-	ENEMY_GO_2_SOLDIER->RenderPiece();
-	ENEMY_GO_3_SOLDIER->RenderPiece();
-	ENEMY_GO_4_SOLDIER->RenderPiece();
+
+	if (true)
+	{
+		//士
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 60)
+				{
+					ENEMY_GOLEFTMAN->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 40)
+				{
+					ENEMY_GORIGHTMAN->RenderPiece();
+				}
+			}
+		}
+		//象
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 70)
+				{
+					ENEMY_GOLEFTELEPHANT->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 30)
+				{
+					ENEMY_GORIGHTELEPHANT->RenderPiece();
+				}
+			}
+		}
+		//马
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 80)
+				{
+					ENEMY_GOLEFTHORSE->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 20)
+				{
+					ENEMY_GORIGHTHORSE->RenderPiece();
+				}
+			}
+		}
+		//車
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 90)
+				{
+					ENEMY_GOLEFTCHARIOT->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 10)
+				{
+					ENEMY_GORIGHTCHARIOT->RenderPiece();
+				}
+			}
+		}
+		//炮
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 120)
+				{
+					ENEMY_GOLEFTCANNON->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 110)
+				{
+					ENEMY_GORIGHTCANNON->RenderPiece();
+				}
+			}
+		}
+		//兵
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 130)
+				{
+					ENEMY_GO_0_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 140)
+				{
+					ENEMY_GO_1_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 150)
+				{
+					ENEMY_GO_2_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 160)
+				{
+					ENEMY_GO_3_SOLDIER->RenderPiece();
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 170)
+				{
+					ENEMY_GO_4_SOLDIER->RenderPiece();
+				}
+			}
+		}
+	}
 }
 void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int Mouse_y)
 {
-	WE_GOPIECECOMMAND->PieceLogicUpdata(Which,State, Mouse_x, Mouse_y);
-	WE_GOLEFTPIECEMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GORIGHTPIECEMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GOLEFTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GORIGHTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GOLEFTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GORIGHTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GOLEFTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GORIGHTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GOLEFTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GORIGHTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GO_0_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GO_1_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GO_2_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	WE_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+	WE_GOPIECECOMMAND->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+
+	if (true)
+	{
+		//士
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 6)
+				{
+					WE_GOLEFTPIECEMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 4)
+				{
+					WE_GORIGHTPIECEMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//象
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 7)
+				{
+					WE_GOLEFTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 3)
+				{
+					WE_GORIGHTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//马
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 8)
+				{
+					WE_GOLEFTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 2)
+				{
+					WE_GORIGHTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//車
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 9)
+				{
+					WE_GOLEFTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 1)
+				{
+					WE_GORIGHTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//炮
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 12)
+				{
+					WE_GOLEFTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 11)
+				{
+					WE_GORIGHTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//兵
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 17)
+				{
+					WE_GO_0_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 16)
+				{
+					WE_GO_1_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 15)
+				{
+					WE_GO_2_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 14)
+				{
+					WE_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 13)
+				{
+					WE_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+	}
 	//================================================
 	ENEMY__GOPIECECOMMAND->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GOLEFTMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GORIGHTMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GOLEFTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GORIGHTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GOLEFTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GORIGHTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GOLEFTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GORIGHTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GOLEFTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GORIGHTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GO_0_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GO_1_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GO_2_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
-	ENEMY_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+
+	if (true)
+	{
+		//士的逻辑更新
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 60)
+				{
+					ENEMY_GOLEFTMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 40)
+				{
+					ENEMY_GORIGHTMAN->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//象的逻辑更新
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 70)
+				{
+					ENEMY_GOLEFTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 30)
+				{
+					ENEMY_GORIGHTELEPHANT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//马的逻辑更新
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 80)
+				{
+					ENEMY_GOLEFTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 20)
+				{
+					ENEMY_GORIGHTHORSE->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//車的逻辑更新
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 90)
+				{
+					ENEMY_GOLEFTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 10)
+				{
+					ENEMY_GORIGHTCHARIOT->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//炮的逻辑更新
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 120)
+				{
+					ENEMY_GOLEFTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 110)
+				{
+					ENEMY_GORIGHTCANNON->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		//兵
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 130)
+				{
+					ENEMY_GO_0_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 140)
+				{
+					ENEMY_GO_1_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 150)
+				{
+					ENEMY_GO_2_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 160)
+				{
+					ENEMY_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 11; j++)
+			{
+				if (Piece_Logic::mMouseDownRange[i][j] == 170)
+				{
+					ENEMY_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
+				}
+			}
+		}
+	}
 }

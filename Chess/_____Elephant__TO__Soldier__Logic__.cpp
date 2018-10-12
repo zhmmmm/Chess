@@ -511,14 +511,18 @@ BOOL 	_____Elephant__TO__Soldier__Logic__::ENEMY__Soldier_MoveLeftTarget(int mPU
 }
 BOOL 	_____Elephant__TO__Soldier__Logic__::ENEMY__Soldier_MoveRightTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
 {
-	if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y < 20 || Mouse_Y > 620)//小兵不能出界
+	if (Mouse_X >= mPUBLIC_Soldier_X + 30 && Mouse_X <= mPUBLIC_Soldier_X + 90
+		&& Mouse_Y >= mPUBLIC_Soldier_Y - 30 && Mouse_Y <= mPUBLIC_Soldier_Y + 30)
 	{
-		return FALSE;
+		if (Mouse_X < 20 || Mouse_X > 560 || Mouse_Y > 620)//小兵不能出界
+		{
+			return FALSE;
+		}
+		else if (Mouse_Y > 320)//小兵要过河才能移动
+		{
+			int temp = 0;
+			return TRUE;
+		}
 	}
-	else if (Mouse_Y > 320)//小兵要过河才能移动
-	{
-		int temp = 0;
-		return TRUE;
-	}
-return FALSE;
+	return FALSE;
 }

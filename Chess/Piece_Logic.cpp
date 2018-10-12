@@ -90,7 +90,23 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i - 1][j] >= 200 && mMouseDownRange[i - 1][j] != 999)//主将前面是空地
+					if ((mMouseDownRange[i - 1][j] == 10) || mMouseDownRange[i - 1][j] > 17 && mMouseDownRange[i - 1][j] < 200 && mMouseDownRange[i - 1][j] != 999)//将军前面有对方棋子
+					{
+						ReturnCommand_State_Y--;
+
+						mMouseDownRange[i - 1][j] = mMouseDownRange[i][j];
+						mMouseDownRange[i][j] = 258;//吃棋
+
+						mWE_Command_Y -= 60;
+
+						ifok = true;
+						break;
+					}
+					else if (false)//老爷面对面
+					{
+
+					}
+					else if (mMouseDownRange[i - 1][j] >= 200 && mMouseDownRange[i - 1][j] != 999)//主将前面是空地
 					{
 						ReturnCommand_State_Y--;
 						//在移动完了之后重新设置将军的坐标
@@ -117,7 +133,23 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i + 1][j] >= 200 && mMouseDownRange[i + 1][j] != 999)//主将后面是空地
+					if ((mMouseDownRange[i + 1][j] == 10) || mMouseDownRange[i + 1][j] >= 17 && mMouseDownRange[i + 1][j] < 200 && mMouseDownRange[i + 1][j] != 999)//将军前面有对方棋子
+					{
+						ReturnCommand_State_Y++;
+
+						mMouseDownRange[i + 1][j] = mMouseDownRange[i][j];
+						mMouseDownRange[i][j] = 258;//吃棋
+
+						mWE_Command_Y += 60;
+
+						ifok = true;
+						break;
+					}
+					else if (false)//老爷面对面
+					{
+
+					}
+					else if (mMouseDownRange[i + 1][j] >= 200 && mMouseDownRange[i + 1][j] != 999)//主将后面是空地
 					{
 						ReturnCommand_State_Y++;
 						//在移动完了之后重新设置将军的坐标
@@ -144,7 +176,23 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i][j - 1] >= 200 && mMouseDownRange[i][j - 1] != 999)//主将左边是空地
+					if ((mMouseDownRange[i][j - 1] == 10) || mMouseDownRange[i][j - 1] >= 17 && mMouseDownRange[i][j - 1] < 200 && mMouseDownRange[i][j - 1] != 999)//将军前面有对方棋子
+					{
+						ReturnCommand_State_X--;
+
+						mMouseDownRange[i][j - 1] = mMouseDownRange[i][j];
+						mMouseDownRange[i][j] = 258;//吃棋
+
+						mWE_Command_X -= 60;
+
+						ifok = true;
+						break;
+					}
+					else if (false)//老爷面对面
+					{
+
+					}
+					else if (mMouseDownRange[i][j - 1] >= 200 && mMouseDownRange[i][j - 1] != 999)//主将左边是空地
 					{
 						ReturnCommand_State_X--;
 						//在移动完了之后重新设置将军的坐标
@@ -171,7 +219,23 @@ int Piece_Logic::__WE__PieceCommand_Logic___(BOOL BoolForward,BOOL BoolBack,BOOL
 			{
 				if (mMouseDownRange[i][j] == 5)//索引到棋子将军
 				{
-					if (mMouseDownRange[i][j + 1] >= 200 && mMouseDownRange[i][j + 1] != 999)//主将右边是空地
+					if ((mMouseDownRange[i][j + 1] == 10) || mMouseDownRange[i][j + 1] >= 17 && mMouseDownRange[i][j + 1] < 200 && mMouseDownRange[i][j + 1] != 999)//将军前面有对方棋子
+					{
+						ReturnCommand_State_X++;
+
+						mMouseDownRange[i][j + 1] = mMouseDownRange[i][j];
+						mMouseDownRange[i][j] = 258;//吃棋
+
+						mWE_Command_X += 60;
+
+						ifok = true;
+						break;
+					}
+					else if (false)//老爷面对面
+					{
+
+					}
+					else if (mMouseDownRange[i][j + 1] >= 200 && mMouseDownRange[i][j + 1] != 999)//主将右边是空地
 					{
 						ReturnCommand_State_X++;
 						//在移动完了之后重新设置将军的坐标
