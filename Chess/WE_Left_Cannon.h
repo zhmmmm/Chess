@@ -93,7 +93,8 @@ public:
 						{
 							Index_I_J++;//记录索引到的第一个棋的次数
 							if ((Piece_Logic::mMouseDownRange[i - (k + 1)][j] == 10) || //这里是車的原因，保证索引到的是敌方的并且只隔开一个棋子
-								(Piece_Logic::mMouseDownRange[i - (k + 1)][j] < 200 && Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999))
+								(Piece_Logic::mMouseDownRange[i - (k + 1)][j] < 200 &&
+									Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999))
 							{
 								if (Index_Frequency == 0)//保证只执行一次
 								{
@@ -106,7 +107,9 @@ public:
 										{
 											Index_N_I++;
 											if ((Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] == 10) ||
-												(Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] > 17 && Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] < 200 && Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] != 999))
+												(Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] > 17 &&
+													Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] < 200 && 
+													Piece_Logic::mMouseDownRange[Index_I - (n + 1)][Index_J] != 999))
 											{
 												Index_N++;//如果只有一个则可以吃了，如果>1 则违反了规则
 											}
@@ -191,7 +194,8 @@ public:
 						{
 							Index_I_J++;//记录索引到的第一个棋的次数
 							if ((Piece_Logic::mMouseDownRange[i + (k + 1)][j] == 10) || //这里是車的原因，保证索引到的是敌方的并且只隔开一个棋子
-								(Piece_Logic::mMouseDownRange[i + (k + 1)][j] < 200 && Piece_Logic::mMouseDownRange[i + (k + 1)][j] != 999))
+								(Piece_Logic::mMouseDownRange[i + (k + 1)][j] < 200 &&
+									Piece_Logic::mMouseDownRange[i + (k + 1)][j] != 999))
 							{
 								if (Index_Frequency == 0)//保证只执行一次
 								{
@@ -291,7 +295,8 @@ public:
 						{
 							Index_I_J++;//记录索引到的第一个棋的次数
 							if ((Piece_Logic::mMouseDownRange[i][j - (k + 1)] == 10) || //这里是車的原因，保证索引到的是敌方的并且只隔开一个棋子
-								(Piece_Logic::mMouseDownRange[i][j - (k + 1)] < 200 && Piece_Logic::mMouseDownRange[i][j - (k + 1)] != 999))
+								(Piece_Logic::mMouseDownRange[i][j - (k + 1)] < 200 && 
+									Piece_Logic::mMouseDownRange[i][j - (k + 1)] != 999))
 							{
 								if (Index_Frequency == 0)//保证只执行一次
 								{
@@ -391,7 +396,8 @@ public:
 						{
 							Index_I_J++;//记录索引到的第一个棋的次数
 							if ((Piece_Logic::mMouseDownRange[i][j + (k + 1)] == 10) || //这里是車的原因，保证索引到的是敌方的并且只隔开一个棋子
-								(Piece_Logic::mMouseDownRange[i][j + (k + 1)] < 200 && Piece_Logic::mMouseDownRange[i][j + (k + 1)] != 999))
+								(Piece_Logic::mMouseDownRange[i][j + (k + 1)] < 200 && 
+									Piece_Logic::mMouseDownRange[i][j + (k + 1)] != 999))
 							{
 								if (Index_Frequency == 0)//保证只执行一次
 								{
