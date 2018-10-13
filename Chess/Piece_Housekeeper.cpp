@@ -315,7 +315,7 @@ void Piece_Housekeeper::LoadPiece()
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 130)
+				if (Piece_Logic::mMouseDownRange[i][j] == 170)
 				{
 					ENEMY_GO_0_SOLDIER->RenderPiece();
 				}
@@ -325,7 +325,7 @@ void Piece_Housekeeper::LoadPiece()
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 140)
+				if (Piece_Logic::mMouseDownRange[i][j] == 160)
 				{
 					ENEMY_GO_1_SOLDIER->RenderPiece();
 				}
@@ -345,7 +345,7 @@ void Piece_Housekeeper::LoadPiece()
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 160)
+				if (Piece_Logic::mMouseDownRange[i][j] == 140)
 				{
 					ENEMY_GO_3_SOLDIER->RenderPiece();
 				}
@@ -355,7 +355,7 @@ void Piece_Housekeeper::LoadPiece()
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 170)
+				if (Piece_Logic::mMouseDownRange[i][j] == 130)
 				{
 					ENEMY_GO_4_SOLDIER->RenderPiece();
 				}
@@ -641,7 +641,7 @@ void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int 
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 130)
+				if (Piece_Logic::mMouseDownRange[i][j] == 170)
 				{
 					ENEMY_GO_0_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 				}
@@ -651,7 +651,7 @@ void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int 
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 140)
+				if (Piece_Logic::mMouseDownRange[i][j] == 160)
 				{
 					ENEMY_GO_1_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 				}
@@ -671,7 +671,7 @@ void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int 
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 160)
+				if (Piece_Logic::mMouseDownRange[i][j] == 140)
 				{
 					ENEMY_GO_3_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 				}
@@ -681,7 +681,7 @@ void Piece_Housekeeper::PieceLogicUpdata(int Which, int State, int Mouse_x, int 
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				if (Piece_Logic::mMouseDownRange[i][j] == 170)
+				if (Piece_Logic::mMouseDownRange[i][j] == 130)
 				{
 					ENEMY_GO_4_SOLDIER->PieceLogicUpdata(Which, State, Mouse_x, Mouse_y);
 				}
