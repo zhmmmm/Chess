@@ -6,7 +6,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::Elephant_MoveForwardTarget(int mPUBLIC
 	if (Mouse_X >= mPUBLIC_Elephant_X - 150 && Mouse_X <= mPUBLIC_Elephant_X - 90
 		&& Mouse_Y >= mPUBLIC_Elephant_Y - 150 && Mouse_Y <= mPUBLIC_Elephant_Y - 90)
 	{
-		if (Mouse_Y < 350)
+		if (Mouse_Y < 320)
 		{
 			return FALSE;
 		}
@@ -22,7 +22,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::Elephant_MoveBackTarget(int mPUBLIC_El
 	if (Mouse_X >= mPUBLIC_Elephant_X + 90 && Mouse_X <= mPUBLIC_Elephant_X + 150
 		&& Mouse_Y >= mPUBLIC_Elephant_Y - 150 && Mouse_Y <= mPUBLIC_Elephant_Y - 90)
 	{
-		if (Mouse_Y < 350)//象的越界问题，这个结构判断是完美的
+		if (Mouse_Y < 320)//象的越界问题，这个结构判断是完美的
 		{
 			return FALSE;
 		}
@@ -72,7 +72,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::ENEMY_Elephant_MoveForwardTarget(int m
 	if (Mouse_X >= mPUBLIC_Elephant_X - 150 && Mouse_X <= mPUBLIC_Elephant_X - 90
 		&& Mouse_Y >= mPUBLIC_Elephant_Y - 150 && Mouse_Y <= mPUBLIC_Elephant_Y - 90)
 	{
-		if (Mouse_Y > 350)
+		if (Mouse_Y < 20)
 		{
 			return FALSE;
 		}
@@ -88,7 +88,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::ENEMY_Elephant_MoveBackTarget(int mPUB
 	if (Mouse_X >= mPUBLIC_Elephant_X + 90 && Mouse_X <= mPUBLIC_Elephant_X + 150
 		&& Mouse_Y >= mPUBLIC_Elephant_Y - 150 && Mouse_Y <= mPUBLIC_Elephant_Y - 90)
 	{
-		if (Mouse_Y > 350)//象的越界问题，这个结构判断是完美的
+		if (Mouse_Y < 20)
 		{
 			return FALSE;
 		}
@@ -104,7 +104,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::ENEMY_Elephant_MoveLeftTarget(int mPUB
 	if (Mouse_X >= mPUBLIC_Elephant_X - 150 && Mouse_X <= mPUBLIC_Elephant_X - 90
 		&& Mouse_Y >= mPUBLIC_Elephant_Y + 90 && Mouse_Y <= mPUBLIC_Elephant_Y + 150)
 	{
-		if (Mouse_Y < 20)
+		if (Mouse_Y > 320)
 		{
 			return FALSE;
 		}
@@ -120,7 +120,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::ENEMY_Elephant_MoveRightTarget(int mPU
 	if (Mouse_X >= mPUBLIC_Elephant_X + 90 && Mouse_X <= mPUBLIC_Elephant_X + 150
 		&& Mouse_Y >= mPUBLIC_Elephant_Y + 90 && Mouse_Y <= mPUBLIC_Elephant_Y + 150)
 	{
-		if (Mouse_Y < 20)//象的越界问题，这个结构判断是完美的
+		if (Mouse_Y > 320)//象的越界问题，这个结构判断是完美的
 		{
 			return FALSE;
 		}
@@ -419,7 +419,7 @@ BOOL _____Elephant__TO__Soldier__Logic__::Cannon_MoveRightTarget(int mPUBLIC_Can
 	return FALSE;
 }
 
-//小兵前，左，右
+//我方小兵前，左，右
 //前
 BOOL _____Elephant__TO__Soldier__Logic__::Soldier_MoveForwardTarget(int mPUBLIC_Soldier_X, int mPUBLIC_Soldier_Y, int Mouse_X, int Mouse_Y)
 {

@@ -68,6 +68,13 @@ public:
 	}
 	int __WE_0_Sodier_Logic___(BOOL BoolForward, BOOL BoolLeft, BOOL BoolRight, int Mouse_Y)
 	{
+		__BoolForward(BoolForward, mWE_3_Soldier_Y, 14, 1);
+		__BoolLeft(BoolLeft, mWE_3_Soldier_X, 14, 1);
+		__BoolRight(BoolRight, mWE_3_Soldier_X, 14, 1);
+		return 0;
+	}
+	int __BoolForward(BOOL BoolForward, int &mWE_0_Soldier_Y, int Piece_Code, int Piece_Change_mWe)
+	{
 		if (BoolForward)
 		{
 			for (int i = 0; i < 12; i++)
@@ -75,18 +82,31 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 14)
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)
 					{
-						if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j] != 999)//前面是空地
+						if (Piece_Logic::mMouseDownRange[i - 1][j] == 10 ||
+							(Piece_Logic::mMouseDownRange[i - 1][j] > 17 && Piece_Logic::mMouseDownRange[i - 1][j] < 200
+								&& Piece_Logic::mMouseDownRange[i - 1][j] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i - 1][j] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_0_Soldier_Y -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(Piece_Change_mWe);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i - 1][j] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j] != 999)//前面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i - 1][j];
 							Piece_Logic::mMouseDownRange[i - 1][j] = Temp;
 
-							mWE_3_Soldier_Y -= 60;
+							mWE_0_Soldier_Y -= 60;
 							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
-							Piece::Change_mWe(1);
+							Piece::Change_mWe(Piece_Change_mWe);
 							ifok = true;
 							break;
 						}
@@ -96,6 +116,10 @@ public:
 			}
 			return 1;
 		}
+		return 0;
+	}
+	int __BoolLeft(BOOL BoolLeft, int &mWE_0_Soldier_X, int Piece_Code, int Piece_Change_mWe)
+	{
 		if (BoolLeft)
 		{
 			for (int i = 0; i < 12; i++)
@@ -103,18 +127,31 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 14)
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)
 					{
-						if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i][j - 1] != 999)//前面是空地
+						if (Piece_Logic::mMouseDownRange[i][j - 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i][j - 1] > 17 && Piece_Logic::mMouseDownRange[i][j - 1] < 200
+								&& Piece_Logic::mMouseDownRange[i][j - 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i][j - 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_0_Soldier_X -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(Piece_Change_mWe);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i][j - 1] != 999)//前面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j - 1];
 							Piece_Logic::mMouseDownRange[i][j - 1] = Temp;
 
-							mWE_3_Soldier_X -= 60;
+							mWE_0_Soldier_X -= 60;
 							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
-							Piece::Change_mWe(1);
+							Piece::Change_mWe(Piece_Change_mWe);
 							ifok = true;
 							break;
 						}
@@ -124,6 +161,10 @@ public:
 			}
 			return 2;
 		}
+		return 0;
+	}
+	int __BoolRight(BOOL BoolRight, int &mWE_0_Soldier_X, int Piece_Code, int Piece_Change_mWe)
+	{
 		if (BoolRight)
 		{
 			for (int i = 0; i < 12; i++)
@@ -131,18 +172,31 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 14)
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)
 					{
-						if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i][j + 1] != 999)//前面是空地
+						if (Piece_Logic::mMouseDownRange[i][j + 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i][j + 1] > 17 && Piece_Logic::mMouseDownRange[i][j + 1] < 200
+								&& Piece_Logic::mMouseDownRange[i][j + 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i][j + 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_0_Soldier_X += 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(Piece_Change_mWe);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i][j + 1] != 999)//前面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
 							Piece_Logic::mMouseDownRange[i][j] = Piece_Logic::mMouseDownRange[i][j + 1];
 							Piece_Logic::mMouseDownRange[i][j + 1] = Temp;
 
-							mWE_3_Soldier_X += 60;
+							mWE_0_Soldier_X += 60;
 							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
-							Piece::Change_mWe(1);
+							Piece::Change_mWe(Piece_Change_mWe);
 							ifok = true;
 							break;
 						}

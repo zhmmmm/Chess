@@ -70,6 +70,14 @@ public:
 	}
 	int __WE_Right_Man___(BOOL BoolLeftForward, BOOL BoolRightForward, BOOL BoolLeftBack, BOOL BoolRightBack)
 	{
+		__BoolLeftForward(BoolLeftForward, mWE_Right_Man_X, mWE_Right_Man_Y, 4);
+		__BoolRightForward(BoolRightForward, mWE_Right_Man_X, mWE_Right_Man_Y, 4);
+		__BoolLeftBack(BoolLeftBack, mWE_Right_Man_X, mWE_Right_Man_Y, 4);
+		__BoolRightBack(BoolRightBack, mWE_Right_Man_X, mWE_Right_Man_Y, 4);
+		return 0;
+	}
+	int __BoolLeftForward(BOOL BoolLeftForward, int &mWE_Right_Man_X,int &mWE_Right_Man_Y,int Piece_Code)
+	{
 		if (BoolLeftForward)//左前
 		{
 			for (int i = 0; i < 12; i++)
@@ -77,9 +85,23 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 4)//索引到棋子左边的士
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的士
 					{
-						if (Piece_Logic::mMouseDownRange[i - 1][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j - 1] != 999)//主将前面是空地
+						if (Piece_Logic::mMouseDownRange[i - 1][j - 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i - 1][j - 1] > 17 && Piece_Logic::mMouseDownRange[i - 1][j - 1] < 200
+								&& Piece_Logic::mMouseDownRange[i - 1][j - 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i - 1][j - 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_Right_Man_X -= 60;
+							mWE_Right_Man_Y -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i - 1][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j - 1] != 999)//主将前面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -99,6 +121,10 @@ public:
 			}
 			return 1;
 		}
+		return 0;
+	}
+	int __BoolRightForward(BOOL BoolRightForward, int &mWE_Right_Man_X, int &mWE_Right_Man_Y, int Piece_Code)
+	{
 		if (BoolRightForward)
 		{
 			for (int i = 0; i < 12; i++)
@@ -106,9 +132,23 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 4)//索引到棋子左边的士
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的士
 					{
-						if (Piece_Logic::mMouseDownRange[i - 1][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j + 1] != 999)//主将后面是空地
+						if (Piece_Logic::mMouseDownRange[i - 1][j + 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i - 1][j + 1] > 17 && Piece_Logic::mMouseDownRange[i - 1][j + 1] < 200
+								&& Piece_Logic::mMouseDownRange[i - 1][j + 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i - 1][j + 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_Right_Man_X += 60;
+							mWE_Right_Man_Y -= 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i - 1][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i - 1][j + 1] != 999)//主将后面是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -128,6 +168,10 @@ public:
 			}
 			return 2;
 		}
+		return 0;
+	}
+	int __BoolLeftBack(BOOL BoolLeftBack, int &mWE_Right_Man_X, int &mWE_Right_Man_Y, int Piece_Code)
+	{
 		if (BoolLeftBack)//左后
 		{
 			for (int i = 0; i < 12; i++)
@@ -135,9 +179,23 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 4)//索引到棋子左边的士
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的士
 					{
-						if (Piece_Logic::mMouseDownRange[i + 1][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 1] != 999)//主将左边是空地
+						if (Piece_Logic::mMouseDownRange[i + 1][j - 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i + 1][j - 1] > 17 && Piece_Logic::mMouseDownRange[i + 1][j - 1] < 200
+								&& Piece_Logic::mMouseDownRange[i + 1][j - 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i + 1][j - 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_Right_Man_X -= 60;
+							mWE_Right_Man_Y += 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i + 1][j - 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j - 1] != 999)//主将左边是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = Piece_Logic::mMouseDownRange[i][j];
@@ -158,6 +216,10 @@ public:
 			}
 			return 3;
 		}
+		return 0;
+	}
+	int __BoolRightBack(BOOL BoolRightBack, int &mWE_Right_Man_X, int &mWE_Right_Man_Y, int Piece_Code)
+	{
 		if (BoolRightBack)
 		{
 			for (int i = 0; i < 12; i++)
@@ -165,9 +227,23 @@ public:
 				bool ifok = false;
 				for (int j = 0; j < 11; j++)
 				{
-					if (Piece_Logic::mMouseDownRange[i][j] == 4)//索引到棋子左边的士
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的士
 					{
-						if (Piece_Logic::mMouseDownRange[i + 1][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 1] != 999)//主将右边是空地
+						if (Piece_Logic::mMouseDownRange[i + 1][j + 1] == 10 ||
+							(Piece_Logic::mMouseDownRange[i + 1][j + 1] > 17 && Piece_Logic::mMouseDownRange[i + 1][j + 1] < 200
+								&& Piece_Logic::mMouseDownRange[i + 1][j + 1] != 999))
+						{
+							Piece_Logic::mMouseDownRange[i + 1][j + 1] = Piece_Logic::mMouseDownRange[i][j];
+							Piece_Logic::mMouseDownRange[i][j] = 258;
+
+							mWE_Right_Man_X += 60;
+							mWE_Right_Man_Y += 60;
+							Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+							Piece::Change_mWe(1);
+							ifok = true;
+							break;
+						}
+						else if (Piece_Logic::mMouseDownRange[i + 1][j + 1] >= 200 && Piece_Logic::mMouseDownRange[i + 1][j + 1] != 999)//主将右边是空地
 						{
 							//在移动完了之后重新设置将军的坐标
 							int Temp = mMouseDownRange[i][j];
