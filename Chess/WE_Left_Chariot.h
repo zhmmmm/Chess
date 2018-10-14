@@ -69,6 +69,14 @@ public:
 	}
 	int __WE_Left_Chariot___(BOOL BoolForward, BOOL BoolBack, BOOL BoolLeft, BOOL BoolRight)
 	{
+		__BoolForward(BoolForward, mWE_Left_Chariot_Y,9);
+		__BoolBack(BoolBack, mWE_Left_Chariot_Y,9);
+		__BoolLeft(BoolLeft, mWE_Left_Chariot_X,9);
+		__BoolRight(BoolRight, mWE_Left_Chariot_X,9);
+		return 0;
+	}
+	int __BoolForward(BOOL BoolForward,int &mWE_Left_Chariot_Y,int Piece_Code)
+	{
 		if (BoolForward)
 		{
 			for (int i = 0; i < 12; i++)
@@ -77,27 +85,49 @@ public:
 				for (int j = 0; j < 11; j++)
 				{
 					bool IfOkMove = false;
-					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的車
 					{
 						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
 						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
 						int Move_Y = (mWE_Left_Chariot_Y - Temp_Y) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
+						int Index = 0;
+						int Index_I = 0;//保证吃掉对象中间没有任何棋子
 						for (int k = 0; k < Move_Y; k++)//进行巡路是否可以行走，可以走多少
 						{
-							if (Piece_Logic::mMouseDownRange[i - (k + 1)][j] >= 200 && Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999)
+							if (Piece_Logic::mMouseDownRange[i - (k + 1)][j] == 10 || Piece_Logic::mMouseDownRange[i - (k + 1)][j] < 200)//保证吃掉对象中间没有任何棋子
 							{
-								IfOkMove = true;
+								Index_I++;
 							}
-							else
+							if ((Piece_Logic::mMouseDownRange[i - (k + 1)][j] == 10) ||
+								Piece_Logic::mMouseDownRange[i - (k + 1)][j] > 17 &&
+								Piece_Logic::mMouseDownRange[i - (k + 1)][j] < 200 &&
+								Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999)//排除我方的棋
 							{
-								IfOkMove = false;
+								if (k == Move_Y - 1 && Index_I == 1)//保证索引的是点击的地方,并且保证吃掉对象中间没有任何棋子,除了要被吃掉的对象
+								{
+									Index = 1;
+								}
+							}
+							if (Index == 1)
+							{
+								Piece_Logic::mMouseDownRange[i - Move_Y][j] = Piece_Logic::mMouseDownRange[i][j];
+								Piece_Logic::mMouseDownRange[i][j] = 258;
+								mWE_Left_Chariot_Y -= (Move_Y * 60);
+
+								Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+								Piece::Change_mWe(1);
+								ifok = true;
 								break;
 							}
-							if (IfOkMove == false) //只要是一次false就是不行的
+							//=========================普通移动
+							if (Piece_Logic::mMouseDownRange[i - (k + 1)][j] >= 200 && Piece_Logic::mMouseDownRange[i - (k + 1)][j] != 999)
 							{
-								break; 
+								if (k == Move_Y - 1)
+								{
+									IfOkMove = true;
+								}
 							}
 							if (IfOkMove && k == Move_Y - 1)//证明这条路可以走得通
 							{
@@ -118,6 +148,10 @@ public:
 			}
 			return 1;
 		}
+		return 0;
+	}
+	int __BoolBack(BOOL BoolBack, int &mWE_Left_Chariot_Y, int Piece_Code)
+	{
 		if (BoolBack)
 		{
 			for (int i = 0; i < 12; i++)
@@ -126,27 +160,49 @@ public:
 				for (int j = 0; j < 11; j++)
 				{
 					bool IfOkMove = false;
-					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的車
 					{
 						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
 						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
 						int Move_Y = (Temp_Y - mWE_Left_Chariot_Y) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
+						int Index = 0;
+						int Index_I = 0;//保证吃掉对象中间没有任何棋子
 						for (int k = 0; k < Move_Y; k++)//进行巡路是否可以行走，可以走多少
 						{
+							if (Piece_Logic::mMouseDownRange[i + (k + 1)][j] == 10 || Piece_Logic::mMouseDownRange[i + (k + 1)][j] < 200)//保证吃掉对象中间没有任何棋子
+							{
+								Index_I++;
+							}
+							if ((Piece_Logic::mMouseDownRange[i + (k + 1)][j] == 10) ||
+								Piece_Logic::mMouseDownRange[i + (k + 1)][j] > 17 &&
+								Piece_Logic::mMouseDownRange[i + (k + 1)][j] < 200 &&
+								Piece_Logic::mMouseDownRange[i + (k + 1)][j] != 999)//排除我方的棋
+							{
+								if (k == Move_Y - 1 && Index_I == 1)//保证索引的是点击的地方,并且保证吃掉对象中间没有任何棋子,除了要被吃掉的对象
+								{
+									Index = 1;
+								}
+							}
+							if (Index == 1)
+							{
+								Piece_Logic::mMouseDownRange[i + Move_Y][j] = Piece_Logic::mMouseDownRange[i][j];
+								Piece_Logic::mMouseDownRange[i][j] = 258;
+								mWE_Left_Chariot_Y += (Move_Y * 60);
+
+								Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+								Piece::Change_mWe(1);
+								ifok = true;
+								break;
+							}
+							//=========================普通移动
 							if (Piece_Logic::mMouseDownRange[i + (k + 1)][j] >= 200 && Piece_Logic::mMouseDownRange[i + (k + 1)][j] != 999)
 							{
-								IfOkMove = true;
-							}
-							else
-							{
-								IfOkMove = false;
-								break;
-							}
-							if (IfOkMove == false) //只要是一次false就是不行的
-							{
-								break;
+								if (k == Move_Y - 1)
+								{
+									IfOkMove = true;
+								}
 							}
 							if (IfOkMove && k == Move_Y - 1)//证明这条路可以走得通
 							{
@@ -167,6 +223,10 @@ public:
 			}
 			return 2;
 		}
+		return 0;
+	}
+	int __BoolLeft(BOOL BoolLeft, int &mWE_Left_Chariot_X, int Piece_Code)
+	{
 		if (BoolLeft)
 		{
 			for (int i = 0; i < 12; i++)
@@ -175,27 +235,49 @@ public:
 				for (int j = 0; j < 11; j++)
 				{
 					bool IfOkMove = false;
-					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的車
 					{
 						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
 						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
 						int Move_X = (mWE_Left_Chariot_X - Temp_X) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
+						int Index = 0;
+						int Index_I = 0;//保证吃掉对象中间没有任何棋子
 						for (int k = 0; k < Move_X; k++)//进行巡路是否可以行走，可以走多少
 						{
+							if (Piece_Logic::mMouseDownRange[i][j - (k + 1)] == 10 || Piece_Logic::mMouseDownRange[i][j - (k + 1)] < 200)//保证吃掉对象中间没有任何棋子
+							{
+								Index_I++;
+							}
+							if ((Piece_Logic::mMouseDownRange[i][j - (k + 1)] == 10) ||
+								Piece_Logic::mMouseDownRange[i][j - (k + 1)] > 17 &&
+								Piece_Logic::mMouseDownRange[i][j - (k + 1)] < 200 &&
+								Piece_Logic::mMouseDownRange[i][j - (k + 1)] != 999)//排除我方的棋
+							{
+								if (k == Move_X - 1 && Index_I == 1)//保证索引的是点击的地方,并且保证吃掉对象中间没有任何棋子,除了要被吃掉的对象
+								{
+									Index = 1;
+								}
+							}
+							if (Index == 1)
+							{
+								Piece_Logic::mMouseDownRange[i][j - Move_X] = Piece_Logic::mMouseDownRange[i][j];
+								Piece_Logic::mMouseDownRange[i][j] = 258;
+								mWE_Left_Chariot_X -= (Move_X * 60);
+
+								Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+								Piece::Change_mWe(1);
+								ifok = true;
+								break;
+							}
+							//=========================普通移动
 							if (Piece_Logic::mMouseDownRange[i][j - (k + 1)] >= 200 && Piece_Logic::mMouseDownRange[i][j - (k + 1)] != 999)
 							{
-								IfOkMove = true;
-							}
-							else
-							{
-								IfOkMove = false;
-								break;
-							}
-							if (IfOkMove == false) //只要是一次false就是不行的
-							{
-								break;
+								if (k == Move_X - 1)
+								{
+									IfOkMove = true;
+								}
 							}
 							if (IfOkMove && k == Move_X - 1)//证明这条路可以走得通
 							{
@@ -216,6 +298,10 @@ public:
 			}
 			return 3;
 		}
+		return 0;
+	}
+	int __BoolRight(BOOL BoolRight, int &mWE_Left_Chariot_X, int Piece_Code)
+	{
 		if (BoolRight)
 		{
 			for (int i = 0; i < 12; i++)
@@ -224,27 +310,49 @@ public:
 				for (int j = 0; j < 11; j++)
 				{
 					bool IfOkMove = false;
-					if (Piece_Logic::mMouseDownRange[i][j] == 9)//索引到棋子左边的車
+					if (Piece_Logic::mMouseDownRange[i][j] == Piece_Code)//索引到棋子左边的車
 					{
 						int Temp_X = Piece_Logic::__Return_mBlueStandardCoor___().x;
 						int Temp_Y = Piece_Logic::__Return_mBlueStandardCoor___().y;//得到鼠标点击的标准坐标
 
 						int Move_X = (Temp_X - mWE_Left_Chariot_X) / 60;//得到要移动的次数，同时也是目标的Y坐标
 
+						int Index = 0;
+						int Index_I = 0;//保证吃掉对象中间没有任何棋子
 						for (int k = 0; k < Move_X; k++)//进行巡路是否可以行走，可以走多少
 						{
+							if (Piece_Logic::mMouseDownRange[i][j + (k + 1)] == 10 || Piece_Logic::mMouseDownRange[i][j + (k + 1)] < 200)//保证吃掉对象中间没有任何棋子
+							{
+								Index_I++;
+							}
+							if ((Piece_Logic::mMouseDownRange[i][j + (k + 1)] == 10) ||
+								Piece_Logic::mMouseDownRange[i][j + (k + 1)] > 17 &&
+								Piece_Logic::mMouseDownRange[i][j + (k + 1)] < 200 &&
+								Piece_Logic::mMouseDownRange[i][j + (k + 1)] != 999)//排除我方的棋
+							{
+								if (k == Move_X - 1 && Index_I == 1)//保证索引的是点击的地方,并且保证吃掉对象中间没有任何棋子,除了要被吃掉的对象
+								{
+									Index = 1;
+								}
+							}
+							if (Index == 1)
+							{
+								Piece_Logic::mMouseDownRange[i][j + Move_X] = Piece_Logic::mMouseDownRange[i][j];
+								Piece_Logic::mMouseDownRange[i][j] = 258;
+								mWE_Left_Chariot_X += (Move_X * 60);
+
+								Piece_Logic::__WE__mWE_CommandState(0);//这里重要
+								Piece::Change_mWe(1);
+								ifok = true;
+								break;
+							}
+							//=========================普通移动
 							if (Piece_Logic::mMouseDownRange[i][j + (k + 1)] >= 200 && Piece_Logic::mMouseDownRange[i][j + (k + 1)] != 999)
 							{
-								IfOkMove = true;
-							}
-							else
-							{
-								IfOkMove = false;
-								break;
-							}
-							if (IfOkMove == false) //只要是一次false就是不行的
-							{
-								break;
+								if (k == Move_X - 1)
+								{
+									IfOkMove = true;
+								}
 							}
 							if (IfOkMove && k == Move_X - 1)//证明这条路可以走得通
 							{
